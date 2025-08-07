@@ -74,7 +74,8 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
           <div className="relative w-full h-full">
             <img
               src={study.image}
-              alt={study.client}
+              alt={`${study.client} ${study.tagline} case study - ${study.description}`}
+              loading="lazy"
               className={cn(
                 "w-full h-full object-cover transition-transform duration-500",
                 isHovered ? "scale-110" : "scale-105"
