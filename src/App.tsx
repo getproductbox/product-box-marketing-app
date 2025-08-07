@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="min-h-screen relative">
       {/* Global Background Layer */}
-      <BackgroundGrid intensity={0.2} distortion={0.1} />
-      <BackgroundEffects showMouseGradient={true} showFloatingDots={true} dotCount={6} />
+      <BackgroundGrid />
+      <BackgroundEffects />
       
       {/* Main Content */}
       <div className="relative z-10">

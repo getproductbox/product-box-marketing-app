@@ -43,7 +43,7 @@ const services = [
 function ServiceCard({ 
   service, 
   index, 
-  isHovered, 
+  isHovered: _isHovered, 
   onHover, 
   onLeave
 }: { 
