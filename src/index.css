@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-pb-white text-pb-gray-900 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-pb-black text-pb-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-6 md:px-8 lg:px-12 max-w-7xl;
+  }
+
+  .magnetic-button {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .magnetic-button::before {
+    content: '';
+    @apply absolute inset-0 bg-pb-black transform scale-0 transition-transform duration-500 rounded-full;
+  }
+
+  .magnetic-button:hover::before {
+    @apply scale-150;
+  }
+
+  .magnetic-button span {
+    @apply relative z-10;
+  }
+}
