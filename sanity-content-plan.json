@@ -1,0 +1,168 @@
+{
+  "hero": {
+    "_type": "hero",
+    "title": "Turn your idea into a product",
+    "subtitle": "Welcome to Product Box",
+    "description": "We're the product development partner that takes you from initial concept to market success. Vision. Scale. Thrive. Three phases, one incredible journey.",
+    "primaryButtonText": "Start Your Journey",
+    "primaryButtonLink": "#contact",
+    "secondaryButtonText": "View Our Work",
+    "secondaryButtonLink": "#case-studies",
+    "stats": [
+      {
+        "value": "48hrs",
+        "label": "Response time",
+        "_key": "1"
+      },
+      {
+        "value": "3 phases",
+        "label": "To success",
+        "_key": "2"
+      },
+      {
+        "value": "100+",
+        "label": "Products launched",
+        "_key": "3"
+      }
+    ]
+  },
+  "services": [
+    {
+      "_type": "service",
+      "title": "Vision",
+      "phase": "Vision",
+      "icon": "eye",
+      "shortDescription": "Transform your idea into a clear product strategy",
+      "fullDescription": "We help you validate your idea, understand your market, and create a comprehensive product strategy that sets you up for success.",
+      "features": [
+        "Market Research",
+        "Product Strategy",
+        "Technical Planning",
+        "Business Model"
+      ],
+      "order": 1
+    },
+    {
+      "_type": "service",
+      "title": "Scale",
+      "phase": "Scale",
+      "icon": "trending-up",
+      "shortDescription": "Build and launch your product",
+      "fullDescription": "Our experienced team develops your product using the latest technologies and best practices to ensure scalability and performance.",
+      "features": [
+        "Product Development",
+        "Quality Assurance",
+        "Launch Strategy",
+        "Performance Optimization"
+      ],
+      "order": 2
+    },
+    {
+      "_type": "service",
+      "title": "Thrive",
+      "phase": "Thrive",
+      "icon": "zap",
+      "shortDescription": "Grow and optimize for success",
+      "fullDescription": "We help you analyze performance, optimize user experience, and implement growth strategies to scale your product.",
+      "features": [
+        "Analytics & Insights",
+        "Growth Strategy",
+        "Optimization",
+        "Continuous Improvement"
+      ],
+      "order": 3
+    }
+  ],
+  "caseStudies": [
+    {
+      "_type": "caseStudy",
+      "client": "Personal Finance Digest Automation",
+      "service": "Vision",
+      "tagline": "Personal Finance Digest Automation",
+      "description": "Automated system that curates, summarizes, and delivers personalized financial news via AI-powered newsletter platform.",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-e582dc6fb49026815b86137e4943b8165434fdc2-1806x751-png",
+          "_type": "reference"
+        }
+      },
+      "metrics": [
+        "3 week prototype",
+        "15 VCs interested",
+        "92% user validation"
+      ],
+      "year": "2024",
+      "order": 1,
+      "featured": true
+    },
+    {
+      "_type": "caseStudy",
+      "client": "Carbon Compared",
+      "service": "Scale",
+      "tagline": "Carbon Compared",
+      "description": "Making Smart Climate Investments Easy",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-00d051ebb7534dfbe7339c3d714f25be201fc566-1957x1366-png",
+          "_type": "reference"
+        }
+      },
+      "metrics": [
+        "8 weeks to market",
+        "+250% user growth",
+        "$2M raised"
+      ],
+      "year": "2024",
+      "order": 2,
+      "featured": true
+    },
+    {
+      "_type": "caseStudy",
+      "client": "Flight Comp Checker",
+      "service": "Thrive",
+      "tagline": "Flight Comp Checker",
+      "description": "A simple, free tool that instantly checks if your flight delay qualifies for EU 261 compensation and automates the claim process.",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-5a1edba5c0590a24d039dde326a2e310835d861b-1959x1362-png",
+          "_type": "reference"
+        }
+      },
+      "metrics": [
+        "99.9% uptime",
+        "10x growth",
+        "40% cost reduction"
+      ],
+      "year": "2024",
+      "order": 3,
+      "featured": true
+    }
+  ],
+  "contactInfo": {
+    "_type": "contactInfo",
+    "email": "hello@getproductbox.com",
+    "socialLinks": [
+      {
+        "platform": "twitter",
+        "url": "https://twitter.com/productbox",
+        "_key": "1"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://linkedin.com/company/productbox",
+        "_key": "2"
+      }
+    ]
+  },
+  "siteSettings": {
+    "_type": "siteSettings",
+    "siteName": "Product Box",
+    "siteDescription": "We're the product development partner that takes you from initial concept to market success.",
+    "siteUrl": "https://getproductbox.com",
+    "seoTitle": "Product Box - Turn Your Idea Into a Product",
+    "seoDescription": "We're the product development partner that takes you from initial concept to market success. Vision. Scale. Thrive. Three phases, one incredible journey."
+  }
+}
