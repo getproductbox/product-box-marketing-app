@@ -26,7 +26,7 @@ export const sanityFetch = async <T>(query: string, params: Record<string, strin
   try {
     return await client.fetch<T>(query, params)
   } catch (error) {
-    console.error('Sanity fetch error:', error)
+    console.warn('Sanity fetch error (CORS or network issue):', error)
     throw error
   }
 }
