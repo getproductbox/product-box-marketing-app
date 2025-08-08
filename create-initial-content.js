@@ -1,12 +1,24 @@
 import { createClient } from '@sanity/client'
+import dotenv from 'dotenv'
+
+// Load environment variables
+dotenv.config()
 
 const client = createClient({
   projectId: 'jsxpecp1',
   dataset: 'production',
   useCdn: false,
   apiVersion: '2024-01-01',
-  token: process.env.SANITY_AUTH_TOKEN // You'll need to add this
+  token: process.env.SANITY_AUTH_TOKEN
 })
+
+// Validate token
+if (!process.env.SANITY_AUTH_TOKEN) {
+  console.error('❌ SANITY_AUTH_TOKEN not found in environment variables')
+  console.error('   Please add SANITY_AUTH_TOKEN=your_token_here to your .env file')
+  console.error('   Get your token from: https://sanity.io/manage')
+  process.exit(1)
+}
 
 async function createInitialContent() {
   console.log('🚀 Creating initial marketing content...')
