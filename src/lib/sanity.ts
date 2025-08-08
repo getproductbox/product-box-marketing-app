@@ -11,6 +11,7 @@ export const client = hasValidConfig ? createClient({
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
   useCdn: true,
   apiVersion: '2024-01-01',
+  token: import.meta.env.VITE_SANITY_AUTH_TOKEN,
 }) : null
 
 const builder = client ? imageUrlBuilder(client) : null
