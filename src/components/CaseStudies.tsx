@@ -1,53 +1,13 @@
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '../lib/utils'
-import { useState } from 'react'
-
-const caseStudies = [
-  {
-    id: 1,
-    client: 'TechFlow',
-    service: 'Scale',
-    tagline: 'AI Analytics Platform',
-    description: 'Transformed a complex data visualization concept into a market-leading product that secured $2M in seed funding.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&q=80',
-    metrics: ['8 weeks to market', '+250% user growth', '$2M raised'],
-    year: '2024'
-  },
-  {
-    id: 2,
-    client: 'GreenCart',
-    service: 'Vision',
-    tagline: 'Sustainable E-commerce',
-    description: 'Created a comprehensive brand identity and digital platform for sustainable shopping that attracted major VC interest.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&q=80',
-    metrics: ['3 week prototype', '15 VCs interested', '92% user validation'],
-    year: '2024'
-  },
-  {
-    id: 3,
-    client: 'HealthHub',
-    service: 'Thrive',
-    tagline: 'Telemedicine Platform',
-    description: 'Scaled a healthcare platform from 5K to 50K patients while maintaining 99.9% uptime and reducing operational costs.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&q=80',
-    metrics: ['99.9% uptime', '10x patient growth', '40% cost reduction'],
-    year: '2023'
-  },
-  {
-    id: 4,
-    client: 'EduLearn',
-    service: 'Scale',
-    tagline: 'Learning Platform',
-    description: 'Built a comprehensive LMS with advanced features that was acquired for $5M within 18 months of launch.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=800&q=80',
-    metrics: ['10 week build', '25K+ students', '$5M acquisition'],
-    year: '2023'
-  }
-]
+import { useState, useEffect } from 'react'
+import { getCaseStudiesData } from '../lib/data'
+import { urlFor } from '../lib/sanity'
+import type { CaseStudy } from '../types/sanity'
 
 // Individual Case Study Card Component
 interface CaseStudyCardProps {
-  study: typeof caseStudies[0]
+  study: CaseStudy
   index: number
   isHovered: boolean
   onHover: () => void
@@ -55,7 +15,8 @@ interface CaseStudyCardProps {
 }
 
 function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyCardProps) {
-
+  const imageUrl = study.image && urlFor(study.image)?.url() || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&q=80'
+  
   return (
     <div
       onMouseEnter={onHover}
@@ -73,8 +34,8 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
         )}>
           <div className="relative w-full h-full">
             <img
-              src={study.image}
-              alt={`${study.client} ${study.tagline} case study - ${study.description}`}
+              src={imageUrl}
+              alt={study.image?.alt || `${study.client} ${study.tagline} case study`}
               loading="lazy"
               className={cn(
                 "w-full h-full object-cover transition-transform duration-500",
@@ -166,7 +127,36 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
 }
 
 export function CaseStudies() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getCaseStudiesData()
+        setCaseStudies(data)
+      } catch (error) {
+        console.error('Error fetching case studies data:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    fetchData()
+  }, [])
+
+  if (isLoading) {
+    return (
+      <section id="work" className="py-32 bg-pb-white relative">
+        <div className="container relative z-10">
+          <div className="text-center">
+            <div className="w-8 h-8 border-2 border-pb-accent border-t-transparent rounded-full animate-spin mx-auto" />
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="work" className="py-32 bg-pb-white relative">
@@ -196,11 +186,11 @@ export function CaseStudies() {
         <div className="space-y-24">
           {caseStudies.map((study, index) => (
             <CaseStudyCard
-              key={study.id}
+              key={study._id}
               study={study}
               index={index}
-              isHovered={hoveredCard === study.id}
-              onHover={() => setHoveredCard(study.id)}
+              isHovered={hoveredCard === study._id}
+              onHover={() => setHoveredCard(study._id)}
               onLeave={() => setHoveredCard(null)}
             />
           ))}

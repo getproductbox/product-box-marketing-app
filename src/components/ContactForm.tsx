@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Send, CheckCircle, XCircle } from 'lucide-react'
+import type { ContactInfo } from '../types/sanity'
 
 interface FormData {
   name: string
@@ -11,7 +12,11 @@ interface FormData {
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
-export function ContactForm() {
+interface ContactFormProps {
+  contactInfo?: ContactInfo | null
+}
+
+export function ContactForm({ contactInfo }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -116,6 +121,14 @@ export function ContactForm() {
         <p className="text-body-lg text-pb-gray-300">
           Ready to turn your idea into a product? Tell us about your project.
         </p>
+        {contactInfo && (
+          <p className="text-body text-pb-gray-400 mt-4">
+            Or reach us directly at{' '}
+            <a href={`mailto:${contactInfo.email}`} className="text-pb-accent hover:text-pb-electric transition-colors">
+              {contactInfo.email}
+            </a>
+          </p>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">

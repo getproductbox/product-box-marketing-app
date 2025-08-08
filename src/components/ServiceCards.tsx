@@ -1,55 +1,16 @@
 import { ArrowUpRight } from 'lucide-react'
-import { useState } from 'react'
-
-const services = [
-  {
-    id: 'vision',
-    title: 'Vision',
-    deliverables: [
-      'Market research & validation',
-      'Interactive prototypes',
-      'Pitch deck preparation'
-    ],
-    timeline: '1 week',
-    price: '£1k',
-    description: 'Transform your concept into a compelling, validated product vision that attracts investors and excites users.'
-  },
-  {
-    id: 'scale', 
-    title: 'Scale',
-    deliverables: [
-      'MVP development',
-      'Quality assurance',
-      'Launch preparation'
-    ],
-    timeline: '6+ weeks',
-    price: '£10k+',
-    description: 'Go from prototype to production-ready product with a scalable foundation built for growth.'
-  },
-  {
-    id: 'thrive',
-    title: 'Thrive',
-    deliverables: [
-      'Ongoing maintenance',
-      'Feature enhancements',
-      'Technical support'
-    ],
-    timeline: 'Ongoing',
-    price: '£500/month',
-    description: 'Keep your product running smoothly while we handle all the technical complexities behind the scenes.'
-  }
-]
+import { useState, useEffect } from 'react'
+import { getServicesData } from '../lib/data'
+import type { Service } from '../types/sanity'
 
 function ServiceCard({ 
   service, 
   index, 
-  isHovered: _isHovered, 
   onHover, 
   onLeave
 }: { 
-  service: typeof services[0]
+  service: Service
   index: number
-  isHovered?: boolean
   onHover?: () => void
   onLeave?: () => void
 }) {
@@ -70,16 +31,10 @@ function ServiceCard({
               {service.title}
             </h3>
 
-            {/* Pricing */}
-            <div className="flex items-center justify-between py-4 border-t border-pb-gray-800">
-              <div>
-                <div className="text-caption text-pb-gray-500 mb-1">Timeline</div>
-                <div className="text-body font-semibold">{service.timeline}</div>
-              </div>
-              <div className="text-right">
-                <div className="text-caption text-pb-gray-500 mb-1">Investment</div>
-                <div className="text-body font-semibold">{service.price}</div>
-              </div>
+            {/* Phase Badge */}
+            <div className="py-4 border-t border-pb-gray-800">
+              <div className="text-caption text-pb-gray-500 mb-1">Phase</div>
+              <div className="text-body font-semibold">{service.phase}</div>
             </div>
           </div>
         </div>
@@ -87,20 +42,25 @@ function ServiceCard({
         {/* Content */}
         <div className="lg:col-span-8">
           <div className="space-y-12">
-            {/* Description */}
-            <p className="text-body-xl text-pb-gray-300 leading-relaxed">
-              {service.description}
+            {/* Short Description */}
+            <p className="text-body-xl text-pb-gray-300 leading-relaxed mb-6">
+              {service.shortDescription}
             </p>
 
-            {/* Deliverables */}
+            {/* Full Description */}
+            <p className="text-body text-pb-gray-400 leading-relaxed">
+              {service.fullDescription}
+            </p>
+
+            {/* Features */}
             <div className="space-y-4">
-              {service.deliverables.map((deliverable, i) => (
+              {service.features.map((feature, i) => (
                 <div
                   key={i}
                   className="flex items-start gap-4"
                 >
                   <div className="w-1 h-1 bg-pb-electric rounded-full mt-3 flex-shrink-0" />
-                  <span className="text-body text-pb-white">{deliverable}</span>
+                  <span className="text-body text-pb-white">{feature}</span>
                 </div>
               ))}
             </div>
@@ -120,7 +80,36 @@ function ServiceCard({
 }
 
 export function ServiceCards() {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const [, setHoveredCard] = useState<string | null>(null)
+  const [services, setServices] = useState<Service[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getServicesData()
+        setServices(data)
+      } catch (error) {
+        console.error('Error fetching services data:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    fetchData()
+  }, [])
+
+  if (isLoading) {
+    return (
+      <section id="services" className="py-32 bg-pb-black text-pb-white">
+        <div className="container">
+          <div className="text-center">
+            <div className="w-8 h-8 border-2 border-pb-accent border-t-transparent rounded-full animate-spin mx-auto" />
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="services" className="py-32 bg-pb-black text-pb-white">
@@ -141,11 +130,10 @@ export function ServiceCards() {
         <div className="space-y-32">
           {services.map((service, index) => (
             <ServiceCard
-              key={service.id}
+              key={service._id}
               service={service}
               index={index}
-              isHovered={hoveredCard === service.id}
-              onHover={() => setHoveredCard(service.id)}
+              onHover={() => setHoveredCard(service._id)}
               onLeave={() => setHoveredCard(null)}
             />
           ))}
