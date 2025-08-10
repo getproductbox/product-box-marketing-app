@@ -74,7 +74,7 @@ export function HeroSection() {
           </a>
         </div>
 
-        <div className={`mt-20 grid gap-8 max-w-2xl mx-auto grid-cols-1 ${heroData.stats.length <= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
+        <div className="mt-20 grid gap-8 max-w-4xl mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {heroData.stats.map((stat, index) => (
             <div key={stat._key} className="text-center">
               <div className={`text-h2 font-bold mb-2 ${
@@ -84,7 +84,7 @@ export function HeroSection() {
               }`}>
                 {stat.value}
               </div>
-              <div className="text-body-sm text-pb-gray-400">{stat.label}</div>
+              <div className="text-body-sm text-pb-gray-400 max-w-[200px] mx-auto">{stat.label}</div>
             </div>
           ))}
         </div>

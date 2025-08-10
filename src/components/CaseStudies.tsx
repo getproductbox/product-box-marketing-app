@@ -24,12 +24,12 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
       className="group cursor-pointer hover:-translate-y-1 transition-transform duration-300"
     >
       <div className={cn(
-        "grid lg:grid-cols-2 gap-16 items-center",
+        "grid lg:grid-cols-2 gap-8 lg:gap-16 items-center",
         index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
       )}>
         {/* Image */}
         <div className={cn(
-          "relative aspect-[4/3] overflow-hidden bg-pb-black rounded-lg",
+          "relative aspect-[16/10] lg:aspect-[4/3] overflow-hidden bg-pb-black rounded-lg",
           index % 2 === 1 ? "lg:col-start-2" : ""
         )}>
           <div className="relative w-full h-full">
@@ -74,7 +74,7 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
 
         {/* Content */}
         <div className={cn(
-          "space-y-8",
+          "space-y-6 lg:space-y-8",
           index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
         )}>
           <div>
@@ -85,38 +85,38 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
               {study.service} • {study.tagline}
             </div>
             
-            <h3 className="text-h1 font-bold text-pb-black mb-6 group-hover:translate-x-1 transition-transform duration-300">
+            <h3 className="text-h2 lg:text-h1 font-bold text-pb-black mb-4 lg:mb-6 group-hover:translate-x-1 transition-transform duration-300 break-words hyphens-auto">
               {study.client}
             </h3>
             
-            <p className="text-body-lg text-pb-gray-700 leading-relaxed">
+            <p className="text-body lg:text-body-lg text-pb-gray-700 leading-relaxed">
               {study.description}
             </p>
           </div>
 
           {/* Metrics */}
-          <div className="space-y-4">
+          <div className="space-y-3 lg:space-y-4">
             {study.metrics.map((metric, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 py-3 border-b border-pb-gray-100 last:border-0 rounded-md px-2 -mx-2 hover:bg-pb-accent/5 hover:translate-x-2 transition-all duration-300"
+                className="flex items-start gap-3 lg:gap-4 py-2 lg:py-3 border-b border-pb-gray-100 last:border-0 rounded-md px-2 -mx-2 hover:bg-pb-accent/5 hover:translate-x-2 transition-all duration-300"
               >
                 <div className={cn(
-                  "rounded-full bg-pb-accent transition-all duration-300",
+                  "rounded-full bg-pb-accent transition-all duration-300 mt-2 flex-shrink-0",
                   isHovered ? "w-2 h-2" : "w-1.5 h-1.5"
                 )} />
-                <span className="text-body font-medium text-pb-black">{metric}</span>
+                <span className="text-body-sm lg:text-body font-medium text-pb-black break-words">{metric}</span>
               </div>
             ))}
           </div>
 
           {/* CTA */}
           <button className="group flex items-center gap-3 text-pb-black font-semibold hover:translate-x-2 transition-transform duration-300">
-            <span className="border-b-2 border-pb-black/20 group-hover:border-pb-accent transition-colors">
+            <span className="text-body-sm lg:text-body border-b-2 border-pb-black/20 group-hover:border-pb-accent transition-colors">
               View full case study
             </span>
             <ArrowUpRight className={cn(
-              "w-4 h-4 transition-transform duration-300",
+              "w-4 h-4 transition-transform duration-300 flex-shrink-0",
               isHovered ? "translate-x-0.5 -translate-y-0.5 rotate-6" : ""
             )} />
           </button>

@@ -20,14 +20,14 @@ function ServiceCard({
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
     >
-      <div className="grid lg:grid-cols-12 gap-16 items-start p-8 -m-8 rounded-2xl">
+      <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start p-6 lg:p-8 -m-6 lg:-m-8 rounded-2xl">
         {/* Number & Title */}
         <div className="lg:col-span-4">
           <div className="sticky top-20">
             <div className="text-h3 font-bold text-pb-accent mb-4">
               0{index + 1}
             </div>
-            <h3 className="text-hero font-black text-pb-white mb-8">
+            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 break-words hyphens-auto">
               {service.title}
             </h3>
 
@@ -41,9 +41,9 @@ function ServiceCard({
 
         {/* Content */}
         <div className="lg:col-span-8">
-          <div className="space-y-12">
+          <div className="space-y-8 lg:space-y-12">
             {/* Short Description */}
-            <p className="text-body-xl text-pb-gray-300 leading-relaxed mb-6">
+            <p className="text-body-lg lg:text-body-xl text-pb-gray-300 leading-relaxed">
               {service.shortDescription}
             </p>
 
@@ -53,24 +53,24 @@ function ServiceCard({
             </p>
 
             {/* Features */}
-            <div className="space-y-4">
+            <div className="space-y-3 lg:space-y-4">
               {service.features.map((feature, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4"
+                  className="flex items-start gap-3 lg:gap-4"
                 >
                   <div className="w-1 h-1 bg-pb-electric rounded-full mt-3 flex-shrink-0" />
-                  <span className="text-body text-pb-white">{feature}</span>
+                  <span className="text-body text-pb-white break-words">{feature}</span>
                 </div>
               ))}
             </div>
 
             {/* CTA */}
-            <div className="flex items-center gap-3 text-pb-white group pt-8">
-              <span className="text-body-lg font-semibold border-b border-pb-gray-600 group-hover:border-pb-white transition-colors">
+            <div className="flex items-center gap-3 text-pb-white group pt-6 lg:pt-8">
+              <span className="text-body lg:text-body-lg font-semibold border-b border-pb-gray-600 group-hover:border-pb-white transition-colors">
                 Learn more about {service.title}
               </span>
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0" />
             </div>
           </div>
         </div>
