@@ -11,17 +11,17 @@ import type { Hero, Service, CaseStudy, ContactInfo, SiteSettings } from '../typ
 const FALLBACK_HERO: Hero = {
   _id: 'fallback-hero',
   _type: 'hero',
-  title: 'Turn your idea into a product',
-  subtitle: 'Welcome to Product Box',
-  description: "We're the product development partner that takes you from initial concept to market success. Vision. Scale. Thrive. Three phases, one incredible journey.",
-  primaryButtonText: 'Start Your Journey',
+  title: 'Build custom internal operations software that scales your business',
+  subtitle: 'Fullstack Operations Specialists',
+  description: "We're the fullstack software partner that builds custom internal operations software with agent workflows to streamline your business processes. Vision. Mobilise. Support. Three offerings that transform how you operate.",
+  primaryButtonText: 'Optimize Operations',
   primaryButtonLink: '#contact',
   secondaryButtonText: 'View Our Work',
   secondaryButtonLink: '#case-studies',
   stats: [
-    { value: '48hrs', label: 'Response time', _key: '1' },
-    { value: '3 phases', label: 'To success', _key: '2' },
-    { value: '100+', label: 'Products launched', _key: '3' }
+    { value: '2-4wks', label: 'Implementation time', _key: '1' },
+    { value: '3 offerings', label: 'To operational excellence', _key: '2' },
+    { value: '50+', label: 'Internal systems built', _key: '3' }
   ]
 }
 
@@ -32,31 +32,31 @@ const FALLBACK_SERVICES: Service[] = [
     title: 'Vision',
     phase: 'Vision',
     icon: 'eye',
-    shortDescription: 'Transform your idea into a clear product strategy',
-    fullDescription: 'We help you validate your idea, understand your market, and create a comprehensive product strategy that sets you up for success.',
-    features: ['Market Research', 'Product Strategy', 'Technical Planning', 'Business Model'],
+    shortDescription: 'Strategic planning and architecture for operational software excellence',
+    fullDescription: 'We audit your current operations, analyze workflow inefficiencies, and design comprehensive software architecture with agent workflows that will transform how your business operates.',
+    features: ['Operational Audit', 'Workflow Analysis', 'Agent Strategy Design', 'Technology Architecture'],
     order: 1
   },
   {
-    _id: 'scale',
+    _id: 'mobilise',
     _type: 'service',
-    title: 'Scale',
-    phase: 'Scale',
+    title: 'Mobilise',
+    phase: 'Mobilise',
     icon: 'trending-up',
-    shortDescription: 'Build and launch your product',
-    fullDescription: 'Our experienced team develops your product using the latest technologies and best practices to ensure scalability and performance.',
-    features: ['Product Development', 'Quality Assurance', 'Launch Strategy', 'Performance Optimization'],
+    shortDescription: 'Custom development and implementation of internal operations software',
+    fullDescription: 'Our fullstack team builds purpose-built internal software with agent workflows, integrating seamlessly with your existing systems to automate processes and scale operations.',
+    features: ['Custom Software Development', 'Agent Workflow Implementation', 'System Integration', 'Process Automation'],
     order: 2
   },
   {
-    _id: 'thrive',
+    _id: 'support',
     _type: 'service',
-    title: 'Thrive',
-    phase: 'Thrive',
+    title: 'Support',
+    phase: 'Support',
     icon: 'zap',
-    shortDescription: 'Grow and optimize for success',
-    fullDescription: 'We help you analyze performance, optimize user experience, and implement growth strategies to scale your product.',
-    features: ['Analytics & Insights', 'Growth Strategy', 'Optimization', 'Continuous Improvement'],
+    shortDescription: 'Ongoing optimization and scaling of your operational software',
+    fullDescription: 'We continuously monitor, optimize, and enhance your internal systems, refining agent workflows and scaling your operational capabilities as your business grows.',
+    features: ['Performance Monitoring', 'Agent Workflow Optimization', 'Feature Enhancement', 'Operational Scaling'],
     order: 3
   }
 ]
@@ -66,15 +66,15 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _id: '1',
     _type: 'caseStudy',
     client: 'TechFlow',
-    service: 'Scale',
+    service: 'Mobilise',
     tagline: 'AI Analytics Platform',
-    description: 'Transformed a complex data visualization concept into a market-leading product that secured $2M in seed funding.',
+    description: 'Built a comprehensive internal analytics platform with automated data processing workflows that streamlined their operations team\'s daily reporting processes, reducing manual work by 80% and enabling real-time business insights that secured $2M in seed funding.',
     image: {
       _type: 'image',
       asset: { _ref: 'fallback-1', _type: 'reference' },
       alt: 'TechFlow AI Analytics Platform'
     },
-    metrics: ['8 weeks to market', '+250% user growth', '$2M raised'],
+    metrics: ['80% less manual work', '8 weeks implementation', '$2M funding secured'],
     year: '2024',
     order: 1,
     featured: true
@@ -84,14 +84,14 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _type: 'caseStudy',
     client: 'GreenCart',
     service: 'Vision',
-    tagline: 'Sustainable E-commerce',
-    description: 'Created a comprehensive brand identity and digital platform for sustainable shopping that attracted major VC interest.',
+    tagline: 'Sustainable E-commerce Operations',
+    description: 'Designed a comprehensive operational software architecture and automation strategy for their sustainable e-commerce platform, mapping critical business processes and creating agent workflows that improved order fulfillment efficiency and attracted major VC interest.',
     image: {
       _type: 'image',
       asset: { _ref: 'fallback-2', _type: 'reference' },
       alt: 'GreenCart Sustainable E-commerce Platform'
     },
-    metrics: ['3 week prototype', '15 VCs interested', '92% user validation'],
+    metrics: ['3x faster fulfillment', '15 VCs interested', '60% process automation'],
     year: '2024',
     order: 2,
     featured: true
@@ -100,15 +100,15 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _id: '3',
     _type: 'caseStudy',
     client: 'HealthHub',
-    service: 'Thrive',
-    tagline: 'Telemedicine Platform',
-    description: 'Scaled a healthcare platform from 5K to 50K patients while maintaining 99.9% uptime and reducing operational costs.',
+    service: 'Support',
+    tagline: 'Telemedicine Operations',
+    description: 'Continuously optimized and scaled their internal patient management systems, implementing advanced monitoring and agent-driven workflows that enabled growth from 5K to 50K patients while maintaining operational excellence and reducing costs by 40%.',
     image: {
       _type: 'image',
       asset: { _ref: 'fallback-3', _type: 'reference' },
       alt: 'HealthHub Telemedicine Platform'
     },
-    metrics: ['99.9% uptime', '10x patient growth', '40% cost reduction'],
+    metrics: ['99.9% system uptime', '10x operational scale', '40% cost reduction'],
     year: '2023',
     order: 3,
     featured: true

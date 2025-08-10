@@ -40,10 +40,10 @@ export function ContactForm({ contactInfo }: ContactFormProps) {
     <div className="max-w-2xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-h2 font-black text-pb-white mb-4">
-          Let's Build Something Amazing
+          Let's Optimize Your Operations
         </h2>
         <p className="text-body-lg text-pb-gray-300">
-          Ready to turn your idea into a product? Tell us about your project.
+          Ready to streamline your business with custom internal software? Tell us about your operational challenges.
         </p>
         {contactInfo && (
           <p className="text-body text-pb-gray-400 mt-4">

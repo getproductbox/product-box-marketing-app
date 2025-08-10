@@ -40,7 +40,7 @@ export interface Service {
   _id: string
   _type: 'service'
   title: string
-  phase: 'Vision' | 'Scale' | 'Thrive'
+  phase: 'Vision' | 'Mobilise' | 'Support'
   icon: string
   shortDescription: string
   fullDescription: string
@@ -52,7 +52,7 @@ export interface CaseStudy {
   _id: string
   _type: 'caseStudy'
   client: string
-  service: 'Vision' | 'Scale' | 'Thrive'
+  service: 'Vision' | 'Mobilise' | 'Support'
   tagline: string
   description: string
   image: SanityImage
