@@ -12,7 +12,7 @@ export interface AdvancedTypographyProps extends HTMLAttributes<HTMLElement> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'blockquote'
 }
 
-export const AdvancedTypography = forwardRef<HTMLElement, AdvancedTypographyProps>(
+export const AdvancedTypography = forwardRef<HTMLDivElement, AdvancedTypographyProps>(
   (
     {
       variant = 'section-title',
@@ -122,7 +122,7 @@ export const AdvancedTypography = forwardRef<HTMLElement, AdvancedTypographyProp
     if (typeof children === 'string' && highlight.length > 0) {
       return (
         <Component
-          ref={ref}
+          ref={ref as any} // eslint-disable-line @typescript-eslint/no-explicit-any
           className={combinedClassName}
           dangerouslySetInnerHTML={{ __html: processText(children) }}
           {...props}
@@ -132,7 +132,7 @@ export const AdvancedTypography = forwardRef<HTMLElement, AdvancedTypographyProp
 
     return (
       <Component
-        ref={ref}
+        ref={ref as any} // eslint-disable-line @typescript-eslint/no-explicit-any
         className={combinedClassName}
         {...props}
       >
