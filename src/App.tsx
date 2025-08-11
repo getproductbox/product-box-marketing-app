@@ -2,6 +2,7 @@ import { Header } from './components/Header'
 import { HeroSection } from './components/HeroSection'
 import { ServiceCards } from './components/ServiceCards'
 import { CaseStudies } from './components/CaseStudies'
+import { TestimonialsSection } from './components/TestimonialsSection'
 import { ContactSection } from './components/ContactSection'
 import { ContactFloat } from './components/ContactFloat'
 import { Footer } from './components/Footer'
@@ -26,6 +27,9 @@ function App() {
         </div>
         <div id="case-studies">
           <CaseStudies />
+        </div>
+        <div id="testimonials">
+          <TestimonialsSection />
         </div>
         <div id="contact">
           <ContactSection />

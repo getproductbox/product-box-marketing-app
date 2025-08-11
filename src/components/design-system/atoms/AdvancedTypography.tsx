@@ -12,7 +12,7 @@ export interface AdvancedTypographyProps extends HTMLAttributes<HTMLElement> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'blockquote'
 }
 
-export const AdvancedTypography = forwardRef<any, AdvancedTypographyProps>(
+export const AdvancedTypography = forwardRef<HTMLElement, AdvancedTypographyProps>(
   (
     {
       variant = 'section-title',
