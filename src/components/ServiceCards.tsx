@@ -22,7 +22,7 @@ function ServiceCard({
     >
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start p-6 lg:p-8 -m-6 lg:-m-8 rounded-2xl group-hover:bg-gradient-to-br group-hover:from-pb-gray-900/50 group-hover:to-pb-gray-800/30 transition-all duration-500">
         {/* Number & Title */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-6">
           <div className="sticky top-20">
             <div className="flex items-center gap-4 mb-6">
               <div className="text-h2 lg:text-h1 font-black text-pb-accent">
@@ -30,23 +30,18 @@ function ServiceCard({
               </div>
               <div className="w-12 h-0.5 bg-gradient-to-r from-pb-accent to-pb-electric" />
             </div>
-            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 text-wrap-balance avoid-orphans leading-tight no-break-short group-hover:text-pb-accent transition-colors duration-300">
+            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 text-wrap-balance avoid-orphans no-break-short group-hover:text-pb-accent transition-colors duration-300">
               {service.title}
             </h3>
           </div>
         </div>
 
         {/* Content */}
-        <div className="lg:col-span-8">
-          <div className="space-y-8 lg:space-y-12">
-            {/* Short Description */}
-            <p className="text-body-lg lg:text-body-xl text-pb-gray-300 leading-relaxed">
+        <div className="lg:col-span-6">
+          <div className="space-y-6 lg:space-y-8">
+            {/* Description */}
+            <p className="text-body-lg text-pb-gray-300 leading-relaxed">
               {service.shortDescription}
-            </p>
-
-            {/* Full Description */}
-            <p className="text-body text-pb-gray-400 leading-relaxed">
-              {service.fullDescription}
             </p>
 
             {/* Features */}
