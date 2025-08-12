@@ -20,22 +20,19 @@ function ServiceCard({
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
     >
-      <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start p-6 lg:p-8 -m-6 lg:-m-8 rounded-2xl">
+      <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start p-6 lg:p-8 -m-6 lg:-m-8 rounded-2xl group-hover:bg-gradient-to-br group-hover:from-pb-gray-900/50 group-hover:to-pb-gray-800/30 transition-all duration-500">
         {/* Number & Title */}
         <div className="lg:col-span-4">
           <div className="sticky top-20">
-            <div className="text-h3 font-bold text-pb-accent mb-4">
-              0{index + 1}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="text-h2 lg:text-h1 font-black text-pb-accent">
+                0{index + 1}
+              </div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-pb-accent to-pb-electric" />
             </div>
-            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 break-words hyphens-auto">
+            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 break-words hyphens-auto group-hover:text-pb-accent transition-colors duration-300">
               {service.title}
             </h3>
-
-            {/* Phase Badge */}
-            <div className="py-4 border-t border-pb-gray-800">
-              <div className="text-caption text-pb-gray-500 mb-1">Phase</div>
-              <div className="text-body font-semibold">{service.phase}</div>
-            </div>
           </div>
         </div>
 
@@ -53,24 +50,29 @@ function ServiceCard({
             </p>
 
             {/* Features */}
-            <div className="space-y-3 lg:space-y-4">
-              {service.features.map((feature, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 lg:gap-4"
-                >
-                  <div className="w-1 h-1 bg-pb-electric rounded-full mt-3 flex-shrink-0" />
-                  <span className="text-body text-pb-white break-words">{feature}</span>
-                </div>
-              ))}
+            <div className="space-y-4 lg:space-y-5">
+              <h4 className="text-body-lg font-semibold text-pb-white mb-4">Key Deliverables</h4>
+              <div className="grid gap-3 lg:gap-4">
+                {service.features.map((feature, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-4 p-4 rounded-lg bg-pb-gray-900/40 border border-pb-gray-800 group-hover:border-pb-gray-700 transition-colors duration-300"
+                  >
+                    <div className="w-2 h-2 bg-gradient-to-r from-pb-accent to-pb-electric rounded-full mt-2.5 flex-shrink-0" />
+                    <span className="text-body text-pb-gray-300 group-hover:text-pb-white transition-colors duration-300 leading-relaxed">{feature}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* CTA */}
-            <div className="flex items-center gap-3 text-pb-white group pt-6 lg:pt-8">
-              <span className="text-body lg:text-body-lg font-semibold border-b border-pb-gray-600 group-hover:border-pb-white transition-colors">
-                Learn more about {service.title}
-              </span>
-              <ArrowUpRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0" />
+            <div className="pt-8 lg:pt-10">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-pb-accent/10 to-pb-electric/10 border border-pb-accent/20 rounded-lg group-hover:from-pb-accent/20 group-hover:to-pb-electric/20 group-hover:border-pb-accent/40 transition-all duration-300 cursor-pointer">
+                <span className="text-body lg:text-body-lg font-semibold text-pb-accent">
+                  Learn more about {service.title}
+                </span>
+                <ArrowUpRight className="w-4 h-4 lg:w-5 lg:h-5 text-pb-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0" />
+              </div>
             </div>
           </div>
         </div>
@@ -119,10 +121,8 @@ export function ServiceCards() {
           <div className="text-caption uppercase tracking-wider text-pb-gray-400 mb-6">
             Our Process
           </div>
-          <h2 className="text-display font-black text-pb-white max-w-4xl mx-auto mb-8">
-            Three steps to
-            <br />
-            product success
+          <h2 className="text-display font-black text-pb-white max-w-4xl mx-auto mb-8 leading-tight text-wrap-balance avoid-orphans">
+            Three steps to product success
           </h2>
         </div>
 

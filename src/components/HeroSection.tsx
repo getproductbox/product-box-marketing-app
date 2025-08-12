@@ -55,7 +55,7 @@ export function HeroSection() {
           {heroData.subtitle}
         </div>
         
-        <h1 className="text-hero font-black mb-8 leading-none">
+        <h1 className="text-hero font-black mb-8 leading-none text-wrap-balance avoid-orphans">
           {(() => {
             // Use A/B test headline if available, otherwise use CMS data
             const displayTitle = (() => {

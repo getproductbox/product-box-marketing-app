@@ -82,7 +82,7 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave }: CaseStudyC
               "text-caption uppercase tracking-wider mb-4 transition-colors duration-300",
               isHovered ? "text-pb-accent" : "text-pb-gray-500"
             )}>
-              {study.service} • {study.tagline}
+              {study.tagline}
             </div>
             
             <h3 className="text-h2 lg:text-h1 font-bold text-pb-black mb-4 lg:mb-6 group-hover:translate-x-1 transition-transform duration-300 break-words hyphens-auto">
@@ -171,14 +171,11 @@ export function CaseStudies() {
           <div className="text-caption uppercase tracking-wider mb-6 bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
             Selected Work
           </div>
-          <h2 className="text-display font-black text-pb-black max-w-4xl mx-auto mb-8">
-            Case studies that prove
-            <br />
-            we know what we're doing
+          <h2 className="text-display font-black text-pb-black max-w-4xl mx-auto mb-8 leading-tight text-wrap-balance avoid-orphans">
+            Case studies that prove we know what we're doing
           </h2>
-          <p className="text-body-lg text-pb-gray-600 max-w-2xl mx-auto">
-            Real companies, real results. Each project demonstrates our ability to 
-            transform ideas into market-winning products.
+          <p className="text-body-lg text-pb-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Real companies, real results. Each project demonstrates our ability to transform ideas into market-winning products.
           </p>
         </div>
 

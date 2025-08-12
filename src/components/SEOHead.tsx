@@ -18,7 +18,7 @@ interface SEOHeadProps {
 
 export function SEOHead({
   title = 'Product Box - Transform Your Operations From Chaos to Competitive Advantage',
-  description = 'Scale your business operations efficiently with Product Box. From Vision to Scale to Thrive - we help companies transform operational chaos into competitive advantages.',
+  description = 'Scale your business operations efficiently with Product Box. From discovery to deployment to optimization - we help companies transform operational chaos into competitive advantages.',
   canonical,
   ogImage = '/og-image.jpg',
   twitterImage,
@@ -114,7 +114,7 @@ export function SEOHead({
         {
           "@type": "Service",
           "name": "Operations Consulting",
-          "description": "Transform operational chaos into competitive advantage with our three-phase approach: Vision, Scale, and Thrive.",
+          "description": "Transform operational chaos into competitive advantage with our comprehensive approach: Discovery & Strategy, Development & Deployment, and Optimization & Growth.",
           "provider": {
             "@id": `${baseUrl}/#organization`
           },
@@ -128,24 +128,24 @@ export function SEOHead({
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Vision Phase",
-                  "description": "Strategic planning and operational assessment"
+                  "name": "Discovery & Strategy",
+                  "description": "Uncover hidden operational bottlenecks and design your growth blueprint"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Scale Phase", 
-                  "description": "Implementation and growth optimization"
+                  "name": "Development & Deployment", 
+                  "description": "Build and deploy custom software that immediately transforms operations"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Thrive Phase",
-                  "description": "Sustainable growth and competitive advantage"
+                  "name": "Optimization & Growth",
+                  "description": "Continuous optimization ensures your operations stay ahead of growth"
                 }
               }
             ]

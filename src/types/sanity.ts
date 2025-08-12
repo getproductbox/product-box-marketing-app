@@ -40,7 +40,6 @@ export interface Service {
   _id: string
   _type: 'service'
   title: string
-  phase: string
   icon: string
   shortDescription: string
   fullDescription: string
@@ -52,7 +51,6 @@ export interface CaseStudy {
   _id: string
   _type: 'caseStudy'
   client: string
-  service: string
   tagline: string
   description: string
   image: SanityImage
