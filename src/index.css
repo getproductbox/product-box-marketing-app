@@ -59,6 +59,12 @@
     word-spacing: 0.1em;
     letter-spacing: -0.01em;
   }
+  
+  .no-break-short {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    hyphens: none;
+  }
 
   /* Custom animations for interactive elements */
   @keyframes fade-in {
