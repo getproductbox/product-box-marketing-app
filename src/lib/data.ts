@@ -4,9 +4,10 @@ import {
   SERVICES_QUERY, 
   CASE_STUDIES_QUERY, 
   CONTACT_INFO_QUERY,
-  SITE_SETTINGS_QUERY
+  SITE_SETTINGS_QUERY,
+  TESTIMONIALS_QUERY
 } from './queries'
-import type { Hero, Service, CaseStudy, ContactInfo, SiteSettings } from '../types/sanity'
+import type { Hero, Service, CaseStudy, ContactInfo, SiteSettings, Testimonial } from '../types/sanity'
 
 const FALLBACK_HERO: Hero = {
   _id: 'fallback-hero',
@@ -27,10 +28,10 @@ const FALLBACK_HERO: Hero = {
 
 const FALLBACK_SERVICES: Service[] = [
   {
-    _id: 'vision',
+    _id: 'discovery',
     _type: 'service',
-    title: 'Vision',
-    phase: 'Vision',
+    title: 'Discovery & Strategy',
+    phase: '',
     icon: 'eye',
     shortDescription: 'Uncover hidden operational bottlenecks and design your growth blueprint',
     fullDescription: 'Before building anything, we dive deep into your operations to identify where you\'re bleeding time and money. Our comprehensive audit reveals inefficiencies you didn\'t know existed, while our strategic blueprint shows exactly how custom software will unlock your next level of growth.',
@@ -38,24 +39,24 @@ const FALLBACK_SERVICES: Service[] = [
     order: 1
   },
   {
-    _id: 'mobilise',
+    _id: 'development',
     _type: 'service',
-    title: 'Mobilise',
-    phase: 'Mobilise',
+    title: 'Development & Deployment',
+    phase: '',
     icon: 'trending-up',
     shortDescription: 'Build and deploy custom software that immediately transforms operations',
-    fullDescription: 'This is where the magic happens. Our experienced team transforms your Vision into powerful, custom-built software that integrates seamlessly with your existing tools. Watch manual processes disappear and efficiency soar as we deploy solutions designed specifically for your business.',
+    fullDescription: 'This is where the magic happens. Our experienced team transforms your strategy into powerful, custom-built software that integrates seamlessly with your existing tools. Watch manual processes disappear and efficiency soar as we deploy solutions designed specifically for your business.',
     features: ['Rapid Custom Development', 'Seamless System Integration', 'Automated Workflow Implementation', 'Real-Time Performance Tracking'],
     order: 2
   },
   {
-    _id: 'support',
+    _id: 'optimization',
     _type: 'service',
-    title: 'Support',
-    phase: 'Support',
+    title: 'Optimization & Growth',
+    phase: '',
     icon: 'zap',
     shortDescription: 'Continuous optimization ensures your operations stay ahead of growth',
-    fullDescription: 'Your business evolves, and so should your systems. Our proactive Support phase means you\'re never left behind. We monitor performance, predict scaling needs, and continuously enhance your software to maintain that competitive edge as you grow.',
+    fullDescription: 'Your business evolves, and so should your systems. Our proactive optimization approach means you\'re never left behind. We monitor performance, predict scaling needs, and continuously enhance your software to maintain that competitive edge as you grow.',
     features: ['24/7 System Monitoring', 'Proactive Performance Optimization', 'Feature Evolution & Enhancement', 'Strategic Growth Planning'],
     order: 3
   }
@@ -125,6 +126,42 @@ const FALLBACK_CONTACT: ContactInfo = {
   ]
 }
 
+const FALLBACK_TESTIMONIALS: Testimonial[] = [
+  {
+    _id: '1',
+    _type: 'testimonial',
+    quote: "We were just three founders with a climate-focused idea struggling to turn our vision into reality. Product Box didn't just build our platform – they became our operational backbone. They mapped our entire business architecture, built our SaaS platform that now serves 500+ companies, and continue to keep us scaling smoothly. Without them, we'd still be stuck in spreadsheets instead of revolutionizing how businesses measure their carbon footprint.",
+    client: "Sarah Chen",
+    company: "Carbon Compared",
+    role: "Co-founder & CEO",
+    variant: "featured",
+    order: 1,
+    featured: true
+  },
+  {
+    _id: '2',
+    _type: 'testimonial',
+    quote: "As a startup accelerator, we've worked with dozens of development teams, but Product Box is different. They understand that early-stage companies need more than just code – they need operational excellence. Their comprehensive approach perfectly mirrors how we help startups scale. They've built internal tools for 12 of our portfolio companies, and every single one has seen dramatic improvements in operational efficiency. They're not just developers; they're growth partners.",
+    client: "Marcus Rodriguez",
+    company: "Vision Pitch",
+    role: "Managing Partner",
+    variant: "featured",
+    order: 2,
+    featured: true
+  },
+  {
+    _id: '3',
+    _type: 'testimonial',
+    quote: "Finding the right technical partner felt impossible until we discovered Product Box. Their ability to understand complex business operations and translate them into elegant software solutions is unmatched. They built our entire workflow management system in 6 weeks, complete with automated processes that saved us 40+ hours per week. What really impressed us was their ongoing optimization – they've continued enhancing our systems as we've grown from 5 to 50 employees, always staying ahead of our needs.",
+    client: "Emma Thompson",
+    company: "Digs",
+    role: "Operations Director",
+    variant: "featured",
+    order: 3,
+    featured: true
+  }
+]
+
 export async function getHeroData(): Promise<Hero> {
   try {
     const data = await sanityFetch<Hero>(HERO_QUERY)
@@ -171,5 +208,15 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
   } catch (error) {
     console.warn('Failed to fetch site settings:', error)
     return null
+  }
+}
+
+export async function getTestimonialsData(): Promise<Testimonial[]> {
+  try {
+    const data = await sanityFetch<Testimonial[]>(TESTIMONIALS_QUERY)
+    return data && data.length > 0 ? data : FALLBACK_TESTIMONIALS
+  } catch (error) {
+    console.warn('Failed to fetch testimonials data, using fallback:', error)
+    return FALLBACK_TESTIMONIALS
   }
 }

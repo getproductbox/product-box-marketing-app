@@ -40,7 +40,7 @@ export interface Service {
   _id: string
   _type: 'service'
   title: string
-  phase: 'Vision' | 'Mobilise' | 'Support'
+  phase: string
   icon: string
   shortDescription: string
   fullDescription: string
@@ -52,12 +52,24 @@ export interface CaseStudy {
   _id: string
   _type: 'caseStudy'
   client: string
-  service: 'Vision' | 'Mobilise' | 'Support'
+  service: string
   tagline: string
   description: string
   image: SanityImage
   metrics: string[]
   year: string
+  order: number
+  featured: boolean
+}
+
+export interface Testimonial {
+  _id: string
+  _type: 'testimonial'
+  quote: string
+  client: string
+  company: string
+  role: string
+  variant: 'default' | 'compact' | 'featured'
   order: number
   featured: boolean
 }

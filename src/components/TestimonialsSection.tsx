@@ -1,33 +1,36 @@
+import { useState, useEffect } from 'react'
 import { TestimonialCard } from './design-system/molecules/TestimonialCard'
-
-const testimonials = [
-  {
-    id: '1',
-    quote: "We were just three founders with a climate-focused idea struggling to turn our vision into reality. Product Box didn't just build our platform – they became our operational backbone. Their Vision phase mapped our entire business architecture, the Mobilise phase built our SaaS platform that now serves 500+ companies, and their Support phase keeps us scaling smoothly. Without them, we'd still be stuck in spreadsheets instead of revolutionizing how businesses measure their carbon footprint.",
-    client: "Sarah Chen",
-    company: "Carbon Compared",
-    role: "Co-founder & CEO",
-    variant: "featured" as const
-  },
-  {
-    id: '2',
-    quote: "As a startup accelerator, we've worked with dozens of development teams, but Product Box is different. They understand that early-stage companies need more than just code – they need operational excellence. Their three-phase approach (Vision, Mobilise, Support) perfectly mirrors how we help startups scale. They've built internal tools for 12 of our portfolio companies, and every single one has seen dramatic improvements in operational efficiency. They're not just developers; they're growth partners.",
-    client: "Marcus Rodriguez",
-    company: "Vision Pitch",
-    role: "Managing Partner",
-    variant: "featured" as const
-  },
-  {
-    id: '3',
-    quote: "Finding the right technical partner felt impossible until we discovered Product Box. Their ability to understand complex business operations and translate them into elegant software solutions is unmatched. They built our entire workflow management system in 6 weeks, complete with automated processes that saved us 40+ hours per week. But what really impressed us was their Support phase – they've continued optimizing our systems as we've grown from 5 to 50 employees, always staying ahead of our needs.",
-    client: "Emma Thompson",
-    company: "Digs",
-    role: "Operations Director",
-    variant: "featured" as const
-  }
-]
+import { getTestimonialsData } from '../lib/data'
+import type { Testimonial } from '../types/sanity'
 
 export function TestimonialsSection() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getTestimonialsData()
+        setTestimonials(data)
+      } catch (error) {
+        console.error('Error fetching testimonials data:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    fetchData()
+  }, [])
+
+  if (isLoading) {
+    return (
+      <section className="py-20 px-6 bg-gradient-to-br from-pb-black via-pb-gray-950 to-pb-black relative overflow-hidden">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-pb-accent border-t-transparent rounded-full animate-spin mx-auto" />
+        </div>
+      </section>
+    )
+  }
   return (
     <section className="py-20 px-6 bg-gradient-to-br from-pb-black via-pb-gray-950 to-pb-black relative overflow-hidden">
       {/* Background Effects */}
@@ -46,7 +49,7 @@ export function TestimonialsSection() {
             Trusted by <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">Growing Companies</span>
           </h2>
           <p className="text-body-lg text-pb-gray-300 max-w-3xl mx-auto">
-            From early-stage startups to scaling companies, see how our three-phase approach transforms operations and accelerates growth.
+            From early-stage startups to scaling companies, see how our comprehensive approach transforms operations and accelerates growth.
           </p>
         </div>
 
@@ -54,7 +57,7 @@ export function TestimonialsSection() {
         <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((testimonial) => (
             <TestimonialCard
-              key={testimonial.id}
+              key={testimonial._id}
               quote={testimonial.quote}
               client={testimonial.client}
               company={testimonial.company}
