@@ -149,7 +149,7 @@ export const AB_TESTS = {
     id: 'hero_cta_button',
     name: 'Hero CTA Button Text',
     description: 'Test different CTA button text on hero section',
-    enabled: true,
+    enabled: false,
     variants: [
       { 
         id: 'control', 
@@ -173,7 +173,7 @@ export const AB_TESTS = {
     id: 'hero_headline',
     name: 'Hero Headline',
     description: 'Test different hero headlines',
-    enabled: true,
+    enabled: false,
     variants: [
       {
         id: 'control',
