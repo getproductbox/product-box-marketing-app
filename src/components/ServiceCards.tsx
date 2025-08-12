@@ -30,7 +30,7 @@ function ServiceCard({
               </div>
               <div className="w-12 h-0.5 bg-gradient-to-r from-pb-accent to-pb-electric" />
             </div>
-            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 break-words hyphens-auto group-hover:text-pb-accent transition-colors duration-300">
+            <h3 className="text-h1 lg:text-hero font-black text-pb-white mb-6 lg:mb-8 text-wrap-balance avoid-orphans leading-tight no-break-short group-hover:text-pb-accent transition-colors duration-300">
               {service.title}
             </h3>
           </div>
