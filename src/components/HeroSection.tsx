@@ -66,11 +66,13 @@ export function HeroSection() {
               return heroData.title
             })()
             
+            // Parse gradient markers: *word* becomes gradient
             return displayTitle.split(' ').map((word, index) => {
-              if (word.toLowerCase() === 'idea' || word.toLowerCase() === 'product' || word.toLowerCase() === 'operations' || word.toLowerCase() === 'operational') {
+              if (word.startsWith('*') && word.endsWith('*') && word.length > 2) {
+                const cleanWord = word.slice(1, -1)
                 return (
                   <span key={index} className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
-                    {word}{' '}
+                    {cleanWord}{' '}
                   </span>
                 )
               }
