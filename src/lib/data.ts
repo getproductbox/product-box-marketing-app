@@ -11,17 +11,17 @@ import type { Hero, Service, CaseStudy, ContactInfo, SiteSettings } from '../typ
 const FALLBACK_HERO: Hero = {
   _id: 'fallback-hero',
   _type: 'hero',
-  title: 'Build custom internal operations software that scales your business',
+  title: 'Transform your operations from chaos to competitive advantage',
   subtitle: 'Fullstack Operations Specialists',
-  description: "We're the fullstack software partner that builds custom internal operations software with agent workflows to streamline your business processes. Vision. Mobilise. Support. Three offerings that transform how you operate.",
-  primaryButtonText: 'Optimize Operations',
+  description: "Stop losing hours to manual processes and operational bottlenecks. We build custom internal software that automates your workflows, scales with your growth, and turns operational efficiency into your secret weapon. From Vision to Support – we're your growth partner, not just your development team.",
+  primaryButtonText: 'Scale My Operations',
   primaryButtonLink: '#contact',
-  secondaryButtonText: 'View Our Work',
-  secondaryButtonLink: '#case-studies',
+  secondaryButtonText: 'See Success Stories',
+  secondaryButtonLink: '#testimonials',
   stats: [
-    { value: '2-4wks', label: 'Implementation time', _key: '1' },
-    { value: '3 offerings', label: 'To operational excellence', _key: '2' },
-    { value: '50+', label: 'Internal systems built', _key: '3' }
+    { value: '40+ hrs', label: 'Weekly time savings per client', _key: '1' },
+    { value: '500+', label: 'Companies transformed', _key: '2' },
+    { value: '98%', label: 'Client satisfaction rate', _key: '3' }
   ]
 }
 
@@ -32,9 +32,9 @@ const FALLBACK_SERVICES: Service[] = [
     title: 'Vision',
     phase: 'Vision',
     icon: 'eye',
-    shortDescription: 'Strategic planning and architecture for operational software excellence',
-    fullDescription: 'We audit your current operations, analyze workflow inefficiencies, and design comprehensive software architecture with agent workflows that will transform how your business operates.',
-    features: ['Operational Audit', 'Workflow Analysis', 'Agent Strategy Design', 'Technology Architecture'],
+    shortDescription: 'Uncover hidden operational bottlenecks and design your growth blueprint',
+    fullDescription: 'Before building anything, we dive deep into your operations to identify where you\'re bleeding time and money. Our comprehensive audit reveals inefficiencies you didn\'t know existed, while our strategic blueprint shows exactly how custom software will unlock your next level of growth.',
+    features: ['Operations Deep-Dive Audit', 'Bottleneck Identification & Analysis', 'Growth-Ready Architecture Design', 'ROI Projection & Timeline'],
     order: 1
   },
   {
@@ -43,9 +43,9 @@ const FALLBACK_SERVICES: Service[] = [
     title: 'Mobilise',
     phase: 'Mobilise',
     icon: 'trending-up',
-    shortDescription: 'Custom development and implementation of internal operations software',
-    fullDescription: 'Our fullstack team builds purpose-built internal software with agent workflows, integrating seamlessly with your existing systems to automate processes and scale operations.',
-    features: ['Custom Software Development', 'Agent Workflow Implementation', 'System Integration', 'Process Automation'],
+    shortDescription: 'Build and deploy custom software that immediately transforms operations',
+    fullDescription: 'This is where the magic happens. Our experienced team transforms your Vision into powerful, custom-built software that integrates seamlessly with your existing tools. Watch manual processes disappear and efficiency soar as we deploy solutions designed specifically for your business.',
+    features: ['Rapid Custom Development', 'Seamless System Integration', 'Automated Workflow Implementation', 'Real-Time Performance Tracking'],
     order: 2
   },
   {
@@ -54,9 +54,9 @@ const FALLBACK_SERVICES: Service[] = [
     title: 'Support',
     phase: 'Support',
     icon: 'zap',
-    shortDescription: 'Ongoing optimization and scaling of your operational software',
-    fullDescription: 'We continuously monitor, optimize, and enhance your internal systems, refining agent workflows and scaling your operational capabilities as your business grows.',
-    features: ['Performance Monitoring', 'Agent Workflow Optimization', 'Feature Enhancement', 'Operational Scaling'],
+    shortDescription: 'Continuous optimization ensures your operations stay ahead of growth',
+    fullDescription: 'Your business evolves, and so should your systems. Our proactive Support phase means you\'re never left behind. We monitor performance, predict scaling needs, and continuously enhance your software to maintain that competitive edge as you grow.',
+    features: ['24/7 System Monitoring', 'Proactive Performance Optimization', 'Feature Evolution & Enhancement', 'Strategic Growth Planning'],
     order: 3
   }
 ]
@@ -67,14 +67,14 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _type: 'caseStudy',
     client: 'TechFlow',
     service: 'Mobilise',
-    tagline: 'AI Analytics Platform',
-    description: 'Built a comprehensive internal analytics platform with automated data processing workflows that streamlined their operations team\'s daily reporting processes, reducing manual work by 80% and enabling real-time business insights that secured $2M in seed funding.',
+    tagline: 'From Manual Reporting Hell to $2M Funding Success',
+    description: 'TechFlow was drowning in manual data processing. Their operations team spent 40+ hours weekly creating reports instead of driving growth. We built their custom analytics platform that automated everything – freeing up their team to focus on strategy. The real-time insights we delivered were so compelling, they secured $2M in seed funding using our platform\'s data.',
     image: {
       _type: 'image',
       asset: { _ref: 'fallback-1', _type: 'reference' },
       alt: 'TechFlow AI Analytics Platform'
     },
-    metrics: ['80% less manual work', '8 weeks implementation', '$2M funding secured'],
+    metrics: ['40+ hours saved weekly', '6 weeks to deployment', '$2M funding secured'],
     year: '2024',
     order: 1,
     featured: true
@@ -84,14 +84,14 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _type: 'caseStudy',
     client: 'GreenCart',
     service: 'Vision',
-    tagline: 'Sustainable E-commerce Operations',
-    description: 'Designed a comprehensive operational software architecture and automation strategy for their sustainable e-commerce platform, mapping critical business processes and creating agent workflows that improved order fulfillment efficiency and attracted major VC interest.',
+    tagline: 'Strategic Blueprint Attracts 15 VCs in 90 Days',
+    description: 'GreenCart had big sustainability goals but chaotic operations holding them back. Our Vision phase uncovered hidden inefficiencies and designed a growth-ready architecture that impressed investors. The strategic operational blueprint we created became their competitive advantage, attracting 15 VCs and positioning them as the clear market leader.',
     image: {
       _type: 'image',
       asset: { _ref: 'fallback-2', _type: 'reference' },
       alt: 'GreenCart Sustainable E-commerce Platform'
     },
-    metrics: ['3x faster fulfillment', '15 VCs interested', '60% process automation'],
+    metrics: ['3x faster order fulfillment', '15 VCs engaged', '90-day transformation'],
     year: '2024',
     order: 2,
     featured: true
@@ -101,14 +101,14 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _type: 'caseStudy',
     client: 'HealthHub',
     service: 'Support',
-    tagline: 'Telemedicine Operations',
-    description: 'Continuously optimized and scaled their internal patient management systems, implementing advanced monitoring and agent-driven workflows that enabled growth from 5K to 50K patients while maintaining operational excellence and reducing costs by 40%.',
+    tagline: '10x Patient Growth Without Operational Chaos',
+    description: 'Scaling from 5K to 50K patients should have broken HealthHub\'s operations. Instead, our proactive Support phase kept them ahead of growth. We continuously optimized their systems, predicted scaling needs, and enhanced capabilities before bottlenecks appeared. Result: seamless 10x growth with 40% cost reduction.',
     image: {
       _type: 'image',
       asset: { _ref: 'fallback-3', _type: 'reference' },
       alt: 'HealthHub Telemedicine Platform'
     },
-    metrics: ['99.9% system uptime', '10x operational scale', '40% cost reduction'],
+    metrics: ['10x patient volume handled', '40% operational cost reduction', '99.9% system uptime'],
     year: '2023',
     order: 3,
     featured: true

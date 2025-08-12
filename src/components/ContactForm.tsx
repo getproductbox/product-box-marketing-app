@@ -40,10 +40,10 @@ export function ContactForm({ contactInfo }: ContactFormProps) {
     <div className="max-w-2xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-h2 font-black text-pb-white mb-4">
-          Let's Optimize Your Operations
+          Ready to <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">Save 40+ Hours Weekly?</span>
         </h2>
         <p className="text-body-lg text-pb-gray-300">
-          Ready to streamline your business with custom internal software? Tell us about your operational challenges.
+          Stop drowning in manual processes. Tell us about your operational bottlenecks and we'll show you exactly how custom software can transform your business in 2-4 weeks.
         </p>
         {contactInfo && (
           <p className="text-body text-pb-gray-400 mt-4">
@@ -106,14 +106,14 @@ export function ContactForm({ contactInfo }: ContactFormProps) {
 
         <div>
           <label className="block text-body-sm font-medium text-pb-white mb-2">
-            Project Description *
+            What operational challenges are costing you time? *
           </label>
           <textarea
             name="projectDescription"
             required
             rows={5}
             className="w-full px-4 py-3 bg-pb-gray-800 border border-pb-gray-700 rounded-md text-pb-white placeholder-pb-gray-400 focus:outline-none focus:ring-2 focus:ring-pb-accent focus:border-pb-accent transition-colors resize-none"
-            placeholder="Tell us about your project idea, goals, and what you're looking to build..."
+            placeholder="Describe your biggest operational pain points - manual reporting, chaotic workflows, integration headaches, scaling bottlenecks..."
           />
         </div>
 
@@ -139,7 +139,7 @@ export function ContactForm({ contactInfo }: ContactFormProps) {
           className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pb-accent to-pb-electric hover:from-pb-electric hover:to-pb-accent text-pb-black font-bold text-body-lg rounded-md transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-pb-accent focus:ring-offset-2 focus:ring-offset-pb-black"
         >
           <Send className="w-5 h-5" />
-          Send Message
+          Get My Operational Assessment
         </button>
       </form>
     </div>

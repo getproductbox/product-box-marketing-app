@@ -2,10 +2,19 @@ import { ArrowUpRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { getHeroData } from '../lib/data'
 import type { Hero } from '../types/sanity'
+import { useAnalytics } from '../providers/AnalyticsProvider'
+import { useABTesting, AB_TESTS } from '../hooks/useABTesting'
 
 export function HeroSection() {
   const [heroData, setHeroData] = useState<Hero | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const analytics = useAnalytics()
+  
+  // A/B test for CTA button text
+  const ctaButtonTest = useABTesting(AB_TESTS.HERO_CTA_BUTTON)
+  
+  // A/B test for headline text
+  const headlineTest = useABTesting(AB_TESTS.HERO_HEADLINE)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,16 +56,27 @@ export function HeroSection() {
         </div>
         
         <h1 className="text-hero font-black mb-8 leading-none">
-          {heroData.title.split(' ').map((word, index) => {
-            if (word.toLowerCase() === 'idea' || word.toLowerCase() === 'product') {
-              return (
-                <span key={index} className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
-                  {word}{' '}
-                </span>
-              )
-            }
-            return word + ' '
-          })}
+          {(() => {
+            // Use A/B test headline if available, otherwise use CMS data
+            const displayTitle = (() => {
+              if (headlineTest.variant && !headlineTest.isLoading) {
+                const testVariant = AB_TESTS.HERO_HEADLINE.variants.find(v => v.id === headlineTest.variant)
+                return testVariant?.name || heroData.title
+              }
+              return heroData.title
+            })()
+            
+            return displayTitle.split(' ').map((word, index) => {
+              if (word.toLowerCase() === 'idea' || word.toLowerCase() === 'product' || word.toLowerCase() === 'operations' || word.toLowerCase() === 'operational') {
+                return (
+                  <span key={index} className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
+                    {word}{' '}
+                  </span>
+                )
+              }
+              return word + ' '
+            })
+          })()}
         </h1>
         
         <p className="text-body-xl text-pb-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -64,17 +84,46 @@ export function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href={heroData.primaryButtonLink} className="bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-md hover:bg-pb-accent/90 hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-pb-accent/20 flex items-center gap-3">
-            {heroData.primaryButtonText}
+          <a 
+            href={heroData.primaryButtonLink} 
+            className="bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-md hover:bg-pb-accent/90 hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-pb-accent/20 flex items-center gap-3"
+            data-button-type="cta-primary"
+            onClick={() => {
+              analytics.trackButtonClick(
+                ctaButtonTest.variant && !ctaButtonTest.isLoading
+                  ? AB_TESTS.HERO_CTA_BUTTON.variants.find(v => v.id === ctaButtonTest.variant)?.name || heroData.primaryButtonText
+                  : heroData.primaryButtonText,
+                'hero',
+                { 
+                  testVariant: ctaButtonTest.variant,
+                  buttonType: 'primary'
+                }
+              )
+              ctaButtonTest.trackConversion('CONTACT_FORM_SUBMIT')
+            }}
+          >
+            {ctaButtonTest.variant && !ctaButtonTest.isLoading
+              ? AB_TESTS.HERO_CTA_BUTTON.variants.find(v => v.id === ctaButtonTest.variant)?.name || heroData.primaryButtonText
+              : heroData.primaryButtonText
+            }
             <ArrowUpRight className="w-5 h-5" />
           </a>
           
-          <a href={heroData.secondaryButtonLink} className="text-pb-white border border-pb-gray-600 px-8 py-4 font-semibold rounded-md hover:border-pb-white hover:bg-pb-white/5 transition-all duration-300">
+          <a 
+            href={heroData.secondaryButtonLink} 
+            className="text-pb-white border border-pb-gray-600 px-8 py-4 font-semibold rounded-md hover:border-pb-white hover:bg-pb-white/5 transition-all duration-300"
+            data-button-type="cta-secondary"
+            onClick={() => {
+              analytics.trackButtonClick(heroData.secondaryButtonText, 'hero', { 
+                buttonType: 'secondary'
+              })
+            }}
+          >
             {heroData.secondaryButtonText}
           </a>
         </div>
 
-        <div className={`mt-20 grid gap-8 max-w-2xl mx-auto grid-cols-1 ${heroData.stats.length <= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
+        <div className="mt-20 grid gap-8 max-w-4xl mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {heroData.stats.map((stat, index) => (
             <div key={stat._key} className="text-center">
               <div className={`text-h2 font-bold mb-2 ${
@@ -84,7 +133,7 @@ export function HeroSection() {
               }`}>
                 {stat.value}
               </div>
-              <div className="text-body-sm text-pb-gray-400">{stat.label}</div>
+              <div className="text-body-sm text-pb-gray-400 max-w-[200px] mx-auto">{stat.label}</div>
             </div>
           ))}
         </div>
