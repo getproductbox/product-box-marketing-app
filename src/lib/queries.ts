@@ -87,3 +87,14 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0] {
     alt
   }
 }`
+
+export const TESTIMONIALS_QUERY = `*[_type == "testimonial"] | order(order asc) {
+  _id,
+  quote,
+  client,
+  company,
+  role,
+  variant,
+  order,
+  featured
+}`
