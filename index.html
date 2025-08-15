@@ -76,6 +76,22 @@
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Hidden form for Netlify detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <textarea name="projectDescription"></textarea>
+      <select name="budgetRange">
+        <option value="under-25k">Under $25k</option>
+        <option value="25k-50k">$25k - $50k</option>
+        <option value="50k-100k">$50k - $100k</option>
+        <option value="100k-plus">$100k+</option>
+        <option value="discuss">Let's discuss</option>
+      </select>
+    </form>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
