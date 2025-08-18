@@ -1,9 +1,9 @@
 export interface SanityImage {
   _type: 'image'
-  asset: {
+  asset?: {
     _ref: string
     _type: 'reference'
-  }
+  } | null
   alt?: string
   hotspot?: {
     x: number

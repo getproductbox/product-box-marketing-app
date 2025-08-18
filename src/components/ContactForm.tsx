@@ -20,7 +20,7 @@ export function ContactForm({ contactInfo }: ContactFormProps) {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form) as any).toString()
+      body: new URLSearchParams(Array.from(new FormData(form).entries()) as [string, string][]).toString()
     })
     .then(() => {
       setFormStatus('success')
