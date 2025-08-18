@@ -31,6 +31,10 @@ export const CASE_STUDIES_QUERY = `*[_type == "caseStudy"] | order(order asc) {
   service,
   tagline,
   description,
+  overview,
+  challenge,
+  solution,
+  results,
   image {
     asset-> {
       _id,
@@ -40,10 +44,16 @@ export const CASE_STUDIES_QUERY = `*[_type == "caseStudy"] | order(order asc) {
     hotspot,
     crop
   },
-  metrics,
+  metrics[] {
+    label,
+    value,
+    _key
+  },
+  technologies,
   year,
   order,
-  featured
+  featured,
+  slug
 }`
 
 export const CONTACT_INFO_QUERY = `*[_type == "contactInfo"][0] {

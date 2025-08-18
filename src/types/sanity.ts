@@ -49,15 +49,24 @@ export interface Service {
 
 export interface CaseStudy {
   _id: string
-  _type: 'caseStudy'
+  _type?: 'caseStudy'
   client: string
   tagline: string
-  description: string
-  image: SanityImage
-  metrics: string[]
-  year: string
-  order: number
-  featured: boolean
+  description?: string
+  overview?: string
+  challenge?: string
+  solution?: string
+  results?: string
+  image?: SanityImage
+  metrics?: Array<{
+    label: string
+    value: string
+  }>
+  technologies?: string[]
+  year?: string
+  order?: number
+  featured?: boolean
+  slug?: string
 }
 
 export interface Testimonial {

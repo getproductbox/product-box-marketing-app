@@ -66,15 +66,25 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     client: 'TechFlow',
     tagline: 'From Manual Reporting Hell to $2M Funding Success',
     description: 'TechFlow was drowning in manual data processing. Their operations team spent 40+ hours weekly creating reports instead of driving growth. We built their custom analytics platform that automated everything – freeing up their team to focus on strategy. The real-time insights we delivered were so compelling, they secured $2M in seed funding using our platform\'s data.',
+    overview: 'A comprehensive analytics platform that transformed manual reporting processes into automated insights, enabling a successful $2M funding round.',
+    challenge: 'TechFlow\'s operations team was spending over 40 hours per week manually processing data and creating reports. This manual approach was not only time-consuming but also prone to errors, preventing the team from focusing on strategic growth initiatives. The lack of real-time insights was hindering their ability to make data-driven decisions and communicate value to potential investors.',
+    solution: 'We developed a custom analytics platform that completely automated their data processing workflows. The solution integrated with their existing tools, automatically collected and processed data from multiple sources, and generated real-time dashboards and reports. We implemented intelligent alerts and predictive analytics to help them stay ahead of trends.',
+    results: 'The transformation was immediate and dramatic. The operations team was freed up to focus on strategic initiatives, the automated system provided real-time insights that were previously impossible to obtain, and the compelling data visualizations became a key asset in their successful $2M funding pitch.',
     image: {
       _type: 'image',
-      asset: { _ref: 'fallback-1', _type: 'reference' },
+      asset: null,
       alt: 'TechFlow AI Analytics Platform'
     },
-    metrics: ['40+ hours saved weekly', '6 weeks to deployment', '$2M funding secured'],
+    metrics: [
+      { label: 'Hours Saved Weekly', value: '40+' },
+      { label: 'Deployment Time', value: '6 weeks' },
+      { label: 'Funding Secured', value: '$2M' }
+    ],
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'D3.js', 'AWS Lambda', 'Docker'],
     year: '2024',
     order: 1,
-    featured: true
+    featured: true,
+    slug: 'techflow-analytics'
   },
   {
     _id: '2',
@@ -82,15 +92,25 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     client: 'GreenCart',
     tagline: 'Strategic Blueprint Attracts 15 VCs in 90 Days',
     description: 'GreenCart had big sustainability goals but chaotic operations holding them back. Our comprehensive discovery uncovered hidden inefficiencies and designed a growth-ready architecture that impressed investors. The strategic operational blueprint we created became their competitive advantage, attracting 15 VCs and positioning them as the clear market leader.',
+    overview: 'A comprehensive operational transformation that turned chaotic processes into a strategic competitive advantage, attracting significant investor interest.',
+    challenge: 'GreenCart had ambitious sustainability goals and a compelling business model, but their operations were fragmented and inefficient. Manual processes were creating bottlenecks, inventory management was chaotic, and their systems couldn\'t scale with their growth ambitions. These operational challenges were preventing them from reaching their potential and communicating their value to investors.',
+    solution: 'We conducted a comprehensive operational audit and designed a complete growth-ready architecture. This included streamlining their supply chain management, implementing automated inventory tracking, creating integrated customer service workflows, and building predictive analytics for demand forecasting. The solution was designed to scale seamlessly with their growth.',
+    results: 'The operational transformation positioned GreenCart as a clear market leader in sustainable e-commerce. The efficiency gains were so significant that they attracted 15 VCs within 90 days. The strategic blueprint we created became a core part of their investor pitch, demonstrating their operational excellence and scalability.',
     image: {
       _type: 'image',
-      asset: { _ref: 'fallback-2', _type: 'reference' },
+      asset: null,
       alt: 'GreenCart Sustainable E-commerce Platform'
     },
-    metrics: ['3x faster order fulfillment', '15 VCs engaged', '90-day transformation'],
+    metrics: [
+      { label: 'Order Fulfillment Speed', value: '3x faster' },
+      { label: 'VC Interest', value: '15 VCs' },
+      { label: 'Transformation Time', value: '90 days' }
+    ],
+    technologies: ['Next.js', 'MongoDB', 'Redis', 'Stripe', 'Shopify API', 'Google Cloud'],
     year: '2024',
     order: 2,
-    featured: true
+    featured: true,
+    slug: 'greencart-transformation'
   },
   {
     _id: '3',
@@ -98,15 +118,25 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     client: 'HealthHub',
     tagline: '10x Patient Growth Without Operational Chaos',
     description: 'Scaling from 5K to 50K patients should have broken HealthHub\'s operations. Instead, our proactive optimization kept them ahead of growth. We continuously optimized their systems, predicted scaling needs, and enhanced capabilities before bottlenecks appeared. Result: seamless 10x growth with 40% cost reduction.',
+    overview: 'A proactive optimization strategy that enabled seamless 10x patient growth while reducing operational costs by 40%.',
+    challenge: 'HealthHub was experiencing rapid growth, scaling from 5,000 to 50,000 patients, but their existing systems weren\'t designed for this volume. Traditional scaling approaches would have resulted in operational chaos, increased costs, and degraded patient experience. They needed a solution that could handle exponential growth while maintaining quality care delivery.',
+    solution: 'We implemented a comprehensive proactive optimization strategy that included automated patient onboarding, intelligent appointment scheduling, predictive capacity planning, and automated billing reconciliation. The system was designed to automatically scale resources based on demand and continuously optimize performance without manual intervention.',
+    results: 'HealthHub achieved seamless 10x patient growth without any operational disruption. The proactive optimization reduced operational costs by 40% while maintaining 99.9% system uptime. Patient satisfaction scores actually improved during the growth period, and the system continues to scale automatically as they add more patients.',
     image: {
       _type: 'image',
-      asset: { _ref: 'fallback-3', _type: 'reference' },
+      asset: null,
       alt: 'HealthHub Telemedicine Platform'
     },
-    metrics: ['10x patient volume handled', '40% operational cost reduction', '99.9% system uptime'],
+    metrics: [
+      { label: 'Patient Volume Growth', value: '10x' },
+      { label: 'Cost Reduction', value: '40%' },
+      { label: 'System Uptime', value: '99.9%' }
+    ],
+    technologies: ['Vue.js', 'Python', 'Django', 'Celery', 'PostgreSQL', 'Docker', 'Kubernetes'],
     year: '2023',
     order: 3,
-    featured: true
+    featured: true,
+    slug: 'healthhub-scaling'
   }
 ]
 

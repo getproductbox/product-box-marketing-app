@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function Footer() {
   return (
     <footer className="py-20 bg-pb-black text-pb-white">
@@ -44,8 +46,8 @@ export function Footer() {
             © 2024 Product Box. All rights reserved.
           </p>
           <div className="flex gap-6 text-caption text-pb-gray-400">
-            <a href="#" className="hover:text-pb-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-pb-white transition-colors">Terms</a>
+            <Link to="/privacy" className="hover:text-pb-white transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-pb-white transition-colors">Terms</Link>
           </div>
         </div>
       </div>
