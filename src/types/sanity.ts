@@ -51,22 +51,26 @@ export interface CaseStudy {
   _id: string
   _type?: 'caseStudy'
   client: string
+  service: 'Vision' | 'Scale' | 'Thrive'
   tagline: string
-  description?: string
-  overview?: string
-  challenge?: string
-  solution?: string
-  results?: string
-  image?: SanityImage
-  metrics?: Array<{
+  description: string
+  overview: string
+  challenge: string
+  solution: string
+  results: string
+  image: SanityImage
+  metrics: Array<{
     label: string
     value: string
   }>
-  technologies?: string[]
-  year?: string
-  order?: number
-  featured?: boolean
-  slug?: string
+  technologies: string[]
+  year: string
+  order: number
+  featured: boolean
+  slug: {
+    current: string
+    _type: 'slug'
+  }
 }
 
 export interface Testimonial {

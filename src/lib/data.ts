@@ -64,6 +64,7 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     _id: '1',
     _type: 'caseStudy',
     client: 'TechFlow',
+    service: 'Vision',
     tagline: 'From Manual Reporting Hell to $2M Funding Success',
     description: 'TechFlow was drowning in manual data processing. Their operations team spent 40+ hours weekly creating reports instead of driving growth. We built their custom analytics platform that automated everything – freeing up their team to focus on strategy. The real-time insights we delivered were so compelling, they secured $2M in seed funding using our platform\'s data.',
     overview: 'A comprehensive analytics platform that transformed manual reporting processes into automated insights, enabling a successful $2M funding round.',
@@ -84,12 +85,16 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     year: '2024',
     order: 1,
     featured: true,
-    slug: 'techflow-analytics'
+    slug: {
+      current: 'techflow-analytics',
+      _type: 'slug'
+    }
   },
   {
     _id: '2',
     _type: 'caseStudy',
     client: 'GreenCart',
+    service: 'Scale',
     tagline: 'Strategic Blueprint Attracts 15 VCs in 90 Days',
     description: 'GreenCart had big sustainability goals but chaotic operations holding them back. Our comprehensive discovery uncovered hidden inefficiencies and designed a growth-ready architecture that impressed investors. The strategic operational blueprint we created became their competitive advantage, attracting 15 VCs and positioning them as the clear market leader.',
     overview: 'A comprehensive operational transformation that turned chaotic processes into a strategic competitive advantage, attracting significant investor interest.',
@@ -110,12 +115,16 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     year: '2024',
     order: 2,
     featured: true,
-    slug: 'greencart-transformation'
+    slug: {
+      current: 'greencart-transformation',
+      _type: 'slug'
+    }
   },
   {
     _id: '3',
     _type: 'caseStudy',
     client: 'HealthHub',
+    service: 'Thrive',
     tagline: '10x Patient Growth Without Operational Chaos',
     description: 'Scaling from 5K to 50K patients should have broken HealthHub\'s operations. Instead, our proactive optimization kept them ahead of growth. We continuously optimized their systems, predicted scaling needs, and enhanced capabilities before bottlenecks appeared. Result: seamless 10x growth with 40% cost reduction.',
     overview: 'A proactive optimization strategy that enabled seamless 10x patient growth while reducing operational costs by 40%.',
@@ -136,7 +145,10 @@ const FALLBACK_CASE_STUDIES: CaseStudy[] = [
     year: '2023',
     order: 3,
     featured: true,
-    slug: 'healthhub-scaling'
+    slug: {
+      current: 'healthhub-scaling',
+      _type: 'slug'
+    }
   }
 ]
 

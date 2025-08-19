@@ -16,6 +16,12 @@ interface CaseStudyCardProps {
   onClick: () => void
 }
 
+// Main component props
+interface CaseStudiesProps {
+  limit?: number
+  caseStudiesOverride?: CaseStudy[]
+}
+
 function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: CaseStudyCardProps) {
   const imageUrl = study.image && study.image.asset
     ? (urlFor(study.image)?.url() || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&q=80')
@@ -135,7 +141,7 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: C
   )
 }
 
-export function CaseStudies() {
+export function CaseStudies({ limit, caseStudiesOverride }: CaseStudiesProps = {}) {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -143,6 +149,13 @@ export function CaseStudies() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
+    // Skip data fetching if override is provided
+    if (caseStudiesOverride) {
+      setCaseStudies(caseStudiesOverride)
+      setIsLoading(false)
+      return
+    }
+
     const fetchData = async () => {
       try {
         const data = await getCaseStudiesData()
@@ -155,7 +168,14 @@ export function CaseStudies() {
     }
     
     fetchData()
-  }, [])
+  }, [caseStudiesOverride])
+
+  // Use override data if provided, otherwise use fetched data
+  const sourceData = caseStudiesOverride || caseStudies
+
+  // Apply limit if provided
+  const displayedCaseStudies = limit ? sourceData.slice(0, limit) : sourceData
+  const hasMoreStudies = limit && sourceData.length > limit
 
   const handleCaseStudyClick = (caseStudy: CaseStudy) => {
     setSelectedCaseStudy(caseStudy)
@@ -202,7 +222,7 @@ export function CaseStudies() {
 
         {/* Case Studies Grid */}
         <div className="space-y-24">
-          {caseStudies.map((study, index) => (
+          {displayedCaseStudies.map((study, index) => (
             <CaseStudyCard
               key={study._id}
               study={study}
@@ -214,6 +234,19 @@ export function CaseStudies() {
             />
           ))}
         </div>
+
+        {/* View All Case Studies Button */}
+        {hasMoreStudies && (
+          <div className="mt-16 text-center">
+            <a
+              href="/case-studies"
+              className="inline-flex items-center gap-3 bg-pb-black text-pb-white px-8 py-4 font-semibold rounded-md hover:bg-pb-black/90 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-pb-black/30 transition-all duration-300"
+            >
+              <span>View All Case Studies</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        )}
 
         {/* Bottom CTA */}
         <div className="mt-32 text-center relative">

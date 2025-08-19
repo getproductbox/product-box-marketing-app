@@ -14,7 +14,7 @@ function App() {
         <ServiceCards />
       </div>
       <div id="case-studies" data-section="case-studies">
-        <CaseStudies />
+        <CaseStudies limit={3} />
       </div>
       <div id="testimonials" data-section="testimonials">
         <TestimonialsSection />
