@@ -170,6 +170,7 @@ export function CaseStudiesPage() {
           <CaseStudies 
             // Pass filtered studies as a custom override
             caseStudiesOverride={filteredStudies}
+            hideHeader={true}
           />
         </div>
       ) : (

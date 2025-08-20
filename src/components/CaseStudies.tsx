@@ -20,6 +20,7 @@ interface CaseStudyCardProps {
 interface CaseStudiesProps {
   limit?: number
   caseStudiesOverride?: CaseStudy[]
+  hideHeader?: boolean
 }
 
 function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: CaseStudyCardProps) {
@@ -146,7 +147,7 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: C
   )
 }
 
-export function CaseStudies({ limit, caseStudiesOverride }: CaseStudiesProps = {}) {
+export function CaseStudies({ limit, caseStudiesOverride, hideHeader = false }: CaseStudiesProps = {}) {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -205,7 +206,7 @@ export function CaseStudies({ limit, caseStudiesOverride }: CaseStudiesProps = {
   }
 
   return (
-    <section id="work" className="py-32 bg-pb-white relative">
+    <section id="work" className={`${hideHeader ? 'py-16' : 'py-32'} bg-pb-white relative`}>
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-pb-gray-50 via-transparent to-pb-gray-50" />
@@ -213,17 +214,19 @@ export function CaseStudies({ limit, caseStudiesOverride }: CaseStudiesProps = {
 
       <div className="container relative z-10">
         {/* Header */}
-        <div className="mb-20 text-center">
-          <div className="text-caption uppercase tracking-wider mb-6 bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
-            Selected Work
+        {!hideHeader && (
+          <div className="mb-20 text-center">
+            <div className="text-caption uppercase tracking-wider mb-6 bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
+              Selected Work
+            </div>
+            <h2 className="text-display font-black text-pb-black max-w-4xl mx-auto mb-8 leading-tight text-wrap-balance avoid-orphans">
+              Case studies that prove we know what we're doing
+            </h2>
+            <p className="text-body-lg text-pb-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Real companies, real results. Each project demonstrates our ability to transform ideas into market-winning products.
+            </p>
           </div>
-          <h2 className="text-display font-black text-pb-black max-w-4xl mx-auto mb-8 leading-tight text-wrap-balance avoid-orphans">
-            Case studies that prove we know what we're doing
-          </h2>
-          <p className="text-body-lg text-pb-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Real companies, real results. Each project demonstrates our ability to transform ideas into market-winning products.
-          </p>
-        </div>
+        )}
 
         {/* Case Studies Grid */}
         <div className="space-y-20">
