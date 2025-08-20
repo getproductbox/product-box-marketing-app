@@ -111,7 +111,7 @@ export function CaseStudiesPage() {
         </div>
 
         {/* Filters and Sorting */}
-        <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between mb-12 p-6 bg-pb-gray-50 rounded-lg">
+        <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between mb-8 p-6 bg-pb-gray-50 rounded-lg">
           {/* Service Filter */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-pb-gray-700">
@@ -125,8 +125,8 @@ export function CaseStudiesPage() {
                   onClick={() => setSelectedService(service)}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     selectedService === service
-                      ? 'bg-pb-accent text-pb-white shadow-lg'
-                      : 'bg-pb-white text-pb-gray-700 hover:bg-pb-accent/10 hover:text-pb-accent'
+                      ? 'bg-pb-accent text-pb-white shadow-lg shadow-pb-accent/20 scale-105'
+                      : 'bg-pb-white text-pb-gray-700 hover:bg-pb-accent/10 hover:text-pb-accent hover:scale-102 hover:shadow-md border border-pb-gray-200'
                   }`}
                 >
                   {service}

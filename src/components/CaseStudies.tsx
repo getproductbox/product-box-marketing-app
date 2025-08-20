@@ -107,19 +107,24 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: C
 
           {/* Metrics */}
           {study.metrics && study.metrics.length > 0 && (
-            <div className="space-y-3 lg:space-y-4">
+            <div className="space-y-4">
               {study.metrics.filter(metric => metric && metric.label && metric.value).map((metric, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 lg:gap-4 py-2 lg:py-3 border-b border-pb-gray-100 last:border-0 rounded-md px-2 -mx-2 hover:bg-pb-accent/5 hover:translate-x-2 transition-all duration-300"
+                  className="flex items-center gap-4 py-3 px-4 bg-pb-gray-50/50 border border-pb-gray-100 rounded-lg hover:bg-pb-accent/5 hover:border-pb-accent/20 hover:translate-x-1 transition-all duration-300"
                 >
                   <div className={cn(
-                    "rounded-full bg-pb-accent transition-all duration-300 mt-2 flex-shrink-0",
-                    isHovered ? "w-3 h-3" : "w-2 h-2"
+                    "rounded-full bg-pb-accent transition-all duration-300 flex-shrink-0",
+                    isHovered ? "w-3 h-3 shadow-lg shadow-pb-accent/30" : "w-2.5 h-2.5"
                   )} />
-                  <span className="text-body-sm lg:text-body font-medium text-pb-black break-words">
-                    {metric.label}: {metric.value}
-                  </span>
+                  <div className="flex-1">
+                    <div className="text-body-sm font-semibold text-pb-black">
+                      {metric.label}
+                    </div>
+                    <div className="text-body-sm text-pb-accent font-bold">
+                      {metric.value}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -221,7 +226,7 @@ export function CaseStudies({ limit, caseStudiesOverride }: CaseStudiesProps = {
         </div>
 
         {/* Case Studies Grid */}
-        <div className="space-y-24">
+        <div className="space-y-20">
           {displayedCaseStudies.map((study, index) => (
             <CaseStudyCard
               key={study._id}
