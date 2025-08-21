@@ -81,7 +81,7 @@ export function CaseStudiesPage() {
     <div className="min-h-screen bg-pb-white">
       {/* Breadcrumb Navigation */}
       <nav 
-        className="container py-8"
+        className="container pt-24 pb-8"
         aria-label="Breadcrumb"
       >
         <div className="flex items-center gap-3 text-pb-gray-600">

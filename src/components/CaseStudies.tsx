@@ -206,7 +206,7 @@ export function CaseStudies({ limit, caseStudiesOverride, hideHeader = false }: 
   }
 
   return (
-    <section id="work" className={`${hideHeader ? 'py-16' : 'py-32'} bg-pb-white relative`}>
+    <section id="work" className={`${hideHeader ? 'pt-4 pb-16' : 'py-32'} bg-pb-white relative`}>
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-pb-gray-50 via-transparent to-pb-gray-50" />
