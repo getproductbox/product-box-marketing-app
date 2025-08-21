@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "Marketing website for Product Box - fullstack operations specialists who build custom internal software to automate workflows and transform operational efficiency into competitive advantage",
+  "keywords": ["operations", "automation", "custom software", "workflow optimization", "business efficiency", "fullstack development", "internal tools"],
+  "homepage": "https://productbox.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getproductbox/product-box-marketing-app.git"
+  },
+  "author": "Product Box <hello@getproductbox.com>",
   "engines": {
     "node": ">=18.0.0"
   },
