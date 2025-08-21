@@ -9,7 +9,9 @@ import type { CaseStudy } from '../types/sanity'
 const mockCaseStudy: CaseStudy = {
   _id: '1',
   client: 'TechCorp',
+  service: 'Vision',
   tagline: 'Revolutionizing E-commerce',
+  description: 'A comprehensive e-commerce platform that increased sales by 300%',
   overview: 'A comprehensive e-commerce platform that increased sales by 300%',
   challenge: 'The client needed to modernize their legacy e-commerce system',
   solution: 'We built a modern, scalable platform using React and Node.js',
@@ -25,7 +27,13 @@ const mockCaseStudy: CaseStudy = {
     asset: { _ref: 'test-ref', _type: 'reference' },
     alt: 'TechCorp dashboard screenshot'
   },
-  slug: 'techcorp-ecommerce'
+  year: '2024',
+  order: 1,
+  featured: true,
+  slug: {
+    current: 'techcorp-ecommerce',
+    _type: 'slug'
+  }
 }
 
 const renderModal = (props = {}) => {

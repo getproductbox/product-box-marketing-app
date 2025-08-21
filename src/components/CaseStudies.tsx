@@ -16,6 +16,13 @@ interface CaseStudyCardProps {
   onClick: () => void
 }
 
+// Main component props
+interface CaseStudiesProps {
+  limit?: number
+  caseStudiesOverride?: CaseStudy[]
+  hideHeader?: boolean
+}
+
 function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: CaseStudyCardProps) {
   const imageUrl = study.image && study.image.asset
     ? (urlFor(study.image)?.url() || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&q=80')
@@ -101,19 +108,24 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: C
 
           {/* Metrics */}
           {study.metrics && study.metrics.length > 0 && (
-            <div className="space-y-3 lg:space-y-4">
+            <div className="space-y-4">
               {study.metrics.filter(metric => metric && metric.label && metric.value).map((metric, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 lg:gap-4 py-2 lg:py-3 border-b border-pb-gray-100 last:border-0 rounded-md px-2 -mx-2 hover:bg-pb-accent/5 hover:translate-x-2 transition-all duration-300"
+                  className="flex items-center gap-4 py-3 px-4 bg-pb-gray-50/50 border border-pb-gray-100 rounded-lg hover:bg-pb-accent/5 hover:border-pb-accent/20 hover:translate-x-1 transition-all duration-300"
                 >
                   <div className={cn(
-                    "rounded-full bg-pb-accent transition-all duration-300 mt-2 flex-shrink-0",
-                    isHovered ? "w-3 h-3" : "w-2 h-2"
+                    "rounded-full bg-pb-accent transition-all duration-300 flex-shrink-0",
+                    isHovered ? "w-3 h-3 shadow-lg shadow-pb-accent/30" : "w-2.5 h-2.5"
                   )} />
-                  <span className="text-body-sm lg:text-body font-medium text-pb-black break-words">
-                    {metric.label}: {metric.value}
-                  </span>
+                  <div className="flex-1">
+                    <div className="text-body-sm font-semibold text-pb-black">
+                      {metric.label}
+                    </div>
+                    <div className="text-body-sm text-pb-accent font-bold">
+                      {metric.value}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -135,7 +147,7 @@ function CaseStudyCard({ study, index, isHovered, onHover, onLeave, onClick }: C
   )
 }
 
-export function CaseStudies() {
+export function CaseStudies({ limit, caseStudiesOverride, hideHeader = false }: CaseStudiesProps = {}) {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -143,6 +155,13 @@ export function CaseStudies() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
+    // Skip data fetching if override is provided
+    if (caseStudiesOverride) {
+      setCaseStudies(caseStudiesOverride)
+      setIsLoading(false)
+      return
+    }
+
     const fetchData = async () => {
       try {
         const data = await getCaseStudiesData()
@@ -155,7 +174,14 @@ export function CaseStudies() {
     }
     
     fetchData()
-  }, [])
+  }, [caseStudiesOverride])
+
+  // Use override data if provided, otherwise use fetched data
+  const sourceData = caseStudiesOverride || caseStudies
+
+  // Apply limit if provided
+  const displayedCaseStudies = limit ? sourceData.slice(0, limit) : sourceData
+  const hasMoreStudies = limit && sourceData.length > limit
 
   const handleCaseStudyClick = (caseStudy: CaseStudy) => {
     setSelectedCaseStudy(caseStudy)
@@ -180,7 +206,7 @@ export function CaseStudies() {
   }
 
   return (
-    <section id="work" className="py-32 bg-pb-white relative">
+    <section id="work" className={`${hideHeader ? 'pt-4 pb-16' : 'py-32'} bg-pb-white relative`}>
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-pb-gray-50 via-transparent to-pb-gray-50" />
@@ -188,21 +214,23 @@ export function CaseStudies() {
 
       <div className="container relative z-10">
         {/* Header */}
-        <div className="mb-20 text-center">
-          <div className="text-caption uppercase tracking-wider mb-6 bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
-            Selected Work
+        {!hideHeader && (
+          <div className="mb-20 text-center">
+            <div className="text-caption uppercase tracking-wider mb-6 bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
+              Selected Work
+            </div>
+            <h2 className="text-display font-black text-pb-black max-w-4xl mx-auto mb-8 leading-tight text-wrap-balance avoid-orphans">
+              Case studies that prove we know what we're doing
+            </h2>
+            <p className="text-body-lg text-pb-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Real companies, real results. Each project demonstrates our ability to transform ideas into market-winning products.
+            </p>
           </div>
-          <h2 className="text-display font-black text-pb-black max-w-4xl mx-auto mb-8 leading-tight text-wrap-balance avoid-orphans">
-            Case studies that prove we know what we're doing
-          </h2>
-          <p className="text-body-lg text-pb-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Real companies, real results. Each project demonstrates our ability to transform ideas into market-winning products.
-          </p>
-        </div>
+        )}
 
         {/* Case Studies Grid */}
-        <div className="space-y-24">
-          {caseStudies.map((study, index) => (
+        <div className="space-y-20">
+          {displayedCaseStudies.map((study, index) => (
             <CaseStudyCard
               key={study._id}
               study={study}
@@ -214,6 +242,19 @@ export function CaseStudies() {
             />
           ))}
         </div>
+
+        {/* View All Case Studies Button */}
+        {hasMoreStudies && (
+          <div className="mt-16 text-center">
+            <a
+              href="/case-studies"
+              className="inline-flex items-center gap-3 bg-pb-black text-pb-white px-8 py-4 font-semibold rounded-md hover:bg-pb-black/90 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-pb-black/30 transition-all duration-300"
+            >
+              <span>View All Case Studies</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        )}
 
         {/* Bottom CTA */}
         <div className="mt-32 text-center relative">
