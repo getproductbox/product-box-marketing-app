@@ -195,6 +195,17 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     variant: "featured",
     order: 3,
     featured: true
+  },
+  {
+    _id: '4',
+    _type: 'testimonial',
+    quote: "Product Box's AI insights presentation was a game-changer for our global product teams. After 17+ years leading digital transformation initiatives, I thought I'd seen it all – but their practical, implementation-focused approach to AI integration opened entirely new possibilities for how we scale our digital products. They didn't just present theory; they showed us exactly how to apply AI to solve real revenue growth challenges across our international operations. Absolutely brilliant work.",
+    client: "James Mitchell",
+    company: "Sterling Financial Group",
+    role: "Strategic Product Executive",
+    variant: "default",
+    order: 4,
+    featured: false
   }
 ]
 
