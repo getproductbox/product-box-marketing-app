@@ -3,8 +3,6 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { BackgroundGrid } from './BackgroundGrid'
 import { BackgroundEffects } from './BackgroundEffects'
-import { SmoothScrollNav } from './SmoothScrollNav'
-import { ContactFloat } from './ContactFloat'
 import { PageLoader } from './design-system/organisms/PageLoader'
 import { AnalyticsProvider, ConsentBanner } from '../providers/AnalyticsProvider'
 import { useState } from 'react'
@@ -25,20 +23,16 @@ export function Layout() {
         {/* Global Background Layer */}
         <BackgroundGrid />
         <BackgroundEffects />
-        
-        {/* Smooth Scroll Navigation */}
-        <SmoothScrollNav />
-        
+
         {/* Header */}
         <Header />
-        
+
         {/* Main Content */}
         <div className="relative z-10">
           <Outlet />
           <Footer />
-          <ContactFloat />
         </div>
-        
+
         {/* Analytics Consent Banner */}
         <ConsentBanner />
       </div>
