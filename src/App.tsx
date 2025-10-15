@@ -16,7 +16,7 @@ function App() {
         {/* Content */}
         <div className="relative z-10 text-center max-w-6xl mx-auto">
           {/* Headline */}
-          <h1 className="text-hero font-black mb-16 leading-[0.9]">
+          <h1 className="text-hero font-black mt-24 mb-24 leading-[0.9]">
             <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">
               Build
             </span>{' '}

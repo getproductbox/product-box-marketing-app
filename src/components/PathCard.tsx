@@ -9,6 +9,24 @@ interface PathCardProps {
   buttonText?: string
 }
 
+/**
+ * Color variants for PathCard component.
+ * Uses full class strings (not interpolation) due to Tailwind JIT compilation requirements.
+ * See: https://tailwindcss.com/docs/content-configuration#class-detection
+ */
+const COLOR_VARIANTS = {
+  accent: {
+    border: 'hover:border-pb-accent',
+    shadow: 'hover:shadow-pb-accent/20',
+    titleHover: 'group-hover:text-pb-accent',
+  },
+  electric: {
+    border: 'hover:border-pb-electric',
+    shadow: 'hover:shadow-pb-electric/20',
+    titleHover: 'group-hover:text-pb-electric',
+  },
+} as const
+
 export function PathCard({
   title,
   description,
@@ -16,28 +34,15 @@ export function PathCard({
   accentColor,
   buttonText = 'Learn More',
 }: PathCardProps) {
-  const colorClasses = {
-    accent: {
-      border: 'border-pb-accent',
-      shadow: 'shadow-pb-accent/20',
-      text: 'text-pb-accent',
-    },
-    electric: {
-      border: 'border-pb-electric',
-      shadow: 'shadow-pb-electric/20',
-      text: 'text-pb-electric',
-    },
-  }
+  const colors = COLOR_VARIANTS[accentColor]
 
-  const colors = colorClasses[accentColor]
+  const cardClasses = `bg-pb-gray-900/50 border-2 border-pb-gray-700 rounded-2xl p-10 ${colors.border} hover:shadow-2xl ${colors.shadow} transition-all duration-300 group flex flex-col items-center text-center`
+
+  const titleClasses = `text-h2 font-bold mb-6 text-pb-white ${colors.titleHover} transition-colors`
 
   return (
-    <div
-      className={`bg-pb-gray-900/50 border-2 border-pb-gray-700 rounded-2xl p-10 hover:${colors.border} hover:shadow-2xl hover:${colors.shadow} transition-all duration-300 group flex flex-col items-center text-center`}
-    >
-      <h2
-        className={`text-h2 font-bold mb-6 text-pb-white group-hover:${colors.text} transition-colors`}
-      >
+    <div className={cardClasses}>
+      <h2 className={titleClasses}>
         {title}
       </h2>
       <p className="text-body-lg text-pb-gray-300 mb-8 leading-relaxed flex-grow">

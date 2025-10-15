@@ -44,14 +44,10 @@ export function ProductStudioPage() {
           </div>
 
           <h1 className="text-display font-black mb-6 leading-tight">
-            We Build Products <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">With AI. Daily.</span>
+            We Build <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">With AI.<br />Every Day.</span>
           </h1>
 
-          <p className="text-body-xl text-pb-gray-300 mb-8 max-w-3xl mx-auto">
-            Product Box is our studio where we ship AI-powered products for clients. Every feature we build, every agent we deploy, every integration we configure—it feeds directly into our training methodology.
-          </p>
-
-          <p className="text-body-lg text-pb-gray-200 mb-10 max-w-2xl mx-auto">
+          <p className="text-body-xl text-pb-gray-300 mb-10 max-w-2xl mx-auto">
             We don't teach theory. We teach what we do every day.
           </p>
 
@@ -196,34 +192,8 @@ export function ProductStudioPage() {
         </div>
       </section>
 
-      {/* Connecting CTA */}
-      <section className="py-20 px-6 bg-gradient-to-br from-pb-electric/20 to-pb-accent/20">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-h2 font-black mb-6">Want Your Team to Build Like This?</h2>
-          <p className="text-body-lg text-pb-gray-300 mb-8 max-w-2xl mx-auto">
-            Our workshops teach the methodology we use every day to ship AI-powered products. From prompting strategies to risk management—it's all based on real production experience.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/agent-training"
-              className="inline-flex items-center justify-center gap-2 bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-lg hover:bg-pb-accent/90 transition-all duration-300"
-            >
-              Explore Agent Training
-              <ArrowUpRight className="w-5 h-5" />
-            </Link>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 border border-pb-gray-600 text-pb-white px-8 py-4 font-semibold rounded-lg hover:border-pb-gray-500 hover:bg-pb-gray-800 transition-all duration-300"
-            >
-              Work With Our Studio
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
+      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-pb-electric/20 to-pb-accent/20">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-h2 font-black mb-6">Let's Build Together</h2>
           <p className="text-body-lg text-pb-gray-300 mb-8">

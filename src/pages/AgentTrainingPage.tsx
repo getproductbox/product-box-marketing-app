@@ -1,4 +1,4 @@
-import { ArrowUpRight, CheckCircle, Clock, Target, BookOpen, MessageSquare, X } from 'lucide-react'
+import { ArrowUpRight, CheckCircle, Clock, Target, BookOpen, MessageSquare } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -20,21 +20,21 @@ export function AgentTrainingPage() {
   return (
     <div className="min-h-screen bg-pb-black text-pb-white">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-24 px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="inline-block px-4 py-2 bg-pb-accent/10 border border-pb-accent/30 rounded-full text-pb-accent text-body-sm font-semibold mb-6">
+          <div className="inline-block px-4 py-2 bg-pb-accent/10 border border-pb-accent/30 rounded-full text-pb-accent text-body-sm font-semibold mb-10">
             AI Agent Readiness Training
           </div>
 
-          <h1 className="text-display font-black mb-6 leading-tight">
+          <h1 className="text-display font-black mb-10 leading-tight">
             Get Your Team <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">Agent-Ready</span>
           </h1>
 
-          <p className="text-body-xl text-pb-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-body-xl text-pb-gray-300 mb-12 max-w-2xl mx-auto">
             Half-day workshops that make your team comfortable and productive with AI agents through hands-on practice, not theory.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
               href="#contact"
               className="inline-flex items-center justify-center gap-2 bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-lg hover:bg-pb-accent/90 transition-all duration-300"
@@ -75,7 +75,6 @@ export function AgentTrainingPage() {
 
           {/* Tab Selector */}
           <div className="text-center mb-6">
-            <p className="text-body text-pb-gray-400 mb-4">See how this works for your team:</p>
             <div className="flex flex-wrap justify-center gap-3">
               <button
                 onClick={() => setActiveTab('hr')}
@@ -183,16 +182,13 @@ export function AgentTrainingPage() {
           </div>
 
           {/* Footer Text */}
-          <div className="text-center space-y-3">
-            <div className="flex items-center justify-center gap-3 text-pb-white">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 text-pb-white bg-pb-gray-900/50 border-2 border-pb-gray-700 rounded-xl px-8 py-6">
               <CheckCircle className="w-6 h-6 text-pb-accent flex-shrink-0" />
               <span className="text-body-lg font-semibold">
                 No new tools required — works with ChatGPT, Claude, or whatever you've already deployed
               </span>
             </div>
-            <p className="text-body text-pb-gray-300">
-              Your team doesn't need to be technical — just willing to learn.
-            </p>
           </div>
         </div>
       </section>
@@ -205,7 +201,7 @@ export function AgentTrainingPage() {
           <h2 className="text-h2 font-black text-center mb-12">What You Get</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8">
+            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
               <Clock className="w-10 h-10 text-pb-accent mb-4" />
               <h3 className="text-h4 font-bold mb-3">Half-Day Workshop</h3>
               <p className="text-body text-pb-gray-300">
@@ -213,7 +209,7 @@ export function AgentTrainingPage() {
               </p>
             </div>
 
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8">
+            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-electric hover:shadow-2xl hover:shadow-pb-electric/20 hover:scale-105 transition-all duration-300">
               <Target className="w-10 h-10 text-pb-electric mb-4" />
               <h3 className="text-h4 font-bold mb-3">Pre-Workshop Discovery</h3>
               <p className="text-body text-pb-gray-300">
@@ -221,7 +217,7 @@ export function AgentTrainingPage() {
               </p>
             </div>
 
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8">
+            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
               <BookOpen className="w-10 h-10 text-pb-accent mb-4" />
               <h3 className="text-h4 font-bold mb-3">Comprehensive Toolkit</h3>
               <p className="text-body text-pb-gray-300">
@@ -229,7 +225,7 @@ export function AgentTrainingPage() {
               </p>
             </div>
 
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8">
+            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-electric hover:shadow-2xl hover:shadow-pb-electric/20 hover:scale-105 transition-all duration-300">
               <MessageSquare className="w-10 h-10 text-pb-electric mb-4" />
               <h3 className="text-h4 font-bold mb-3">30-Day Email Support</h3>
               <p className="text-body text-pb-gray-300">
@@ -249,9 +245,8 @@ export function AgentTrainingPage() {
 
           <div className="space-y-6">
             <div className="bg-pb-gray-900 border-l-4 border-pb-accent rounded-lg p-6">
-              <div className="flex items-start justify-between mb-3">
+              <div className="mb-3">
                 <h3 className="text-h4 font-bold">Part 1: Foundations</h3>
-                <span className="text-body-sm text-pb-gray-400">45 minutes</span>
               </div>
               <ul className="space-y-2 text-body text-pb-gray-300">
                 <li className="flex items-start gap-2">
@@ -270,9 +265,8 @@ export function AgentTrainingPage() {
             </div>
 
             <div className="bg-pb-gray-900 border-l-4 border-pb-electric rounded-lg p-6">
-              <div className="flex items-start justify-between mb-3">
+              <div className="mb-3">
                 <h3 className="text-h4 font-bold">Part 2: Hands-On Practice</h3>
-                <span className="text-body-sm text-pb-gray-400">90 minutes</span>
               </div>
               <ul className="space-y-2 text-body text-pb-gray-300">
                 <li className="flex items-start gap-2">
@@ -295,9 +289,8 @@ export function AgentTrainingPage() {
             </div>
 
             <div className="bg-pb-gray-900 border-l-4 border-pb-accent rounded-lg p-6">
-              <div className="flex items-start justify-between mb-3">
+              <div className="mb-3">
                 <h3 className="text-h4 font-bold">Part 3: Application</h3>
-                <span className="text-body-sm text-pb-gray-400">45 minutes</span>
               </div>
               <ul className="space-y-2 text-body text-pb-gray-300">
                 <li className="flex items-start gap-2">
@@ -346,124 +339,6 @@ export function AgentTrainingPage() {
                 <span className="text-body text-pb-gray-200">{outcome}</span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* Pricing */}
-      <section className="py-20 px-6 bg-pb-gray-900/30">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-h2 font-black text-center mb-12">Pricing & Packages</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Team Workshop Package */}
-            <div className="bg-pb-gray-900 border border-pb-accent rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-pb-accent text-pb-white px-4 py-1 rounded-full text-body-sm font-semibold">
-                Limited Availability
-              </div>
-              <h3 className="text-h3 font-bold mb-2 mt-4">Team Workshop</h3>
-              <div className="text-h2 font-black text-pb-accent mb-4">£2,500</div>
-              <p className="text-body-sm text-pb-gray-400 mb-6">Up to 20 people</p>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-accent flex-shrink-0 mt-0.5" />
-                  <span>Half-day workshop</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-accent flex-shrink-0 mt-0.5" />
-                  <span>Pre-workshop customization</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-accent flex-shrink-0 mt-0.5" />
-                  <span>Comprehensive toolkit</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-accent flex-shrink-0 mt-0.5" />
-                  <span>30-day email support</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm text-pb-gray-400">
-                  <span className="ml-7">*Testimonial required</span>
-                </li>
-              </ul>
-
-              <a href="#contact" className="block w-full bg-pb-accent text-pb-white text-center py-3 rounded-lg font-semibold hover:bg-pb-accent/90 transition-colors">
-                Apply Now
-              </a>
-            </div>
-
-            {/* Standard Package */}
-            <div className="bg-pb-gray-900 border-2 border-pb-electric rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-pb-electric text-pb-black px-4 py-1 rounded-full text-body-sm font-semibold">
-                Most Popular
-              </div>
-              <h3 className="text-h3 font-bold mb-2 mt-4">Standard</h3>
-              <div className="text-h2 font-black text-pb-electric mb-4">£6,500</div>
-              <p className="text-body-sm text-pb-gray-400 mb-6">Up to 20 people</p>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-electric flex-shrink-0 mt-0.5" />
-                  <span>Half-day workshop</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-electric flex-shrink-0 mt-0.5" />
-                  <span>Pre-workshop customization</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-electric flex-shrink-0 mt-0.5" />
-                  <span>Comprehensive toolkit</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-electric flex-shrink-0 mt-0.5" />
-                  <span>30-day email support</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-electric flex-shrink-0 mt-0.5" />
-                  <span>Follow-up metrics</span>
-                </li>
-              </ul>
-
-              <a href="#contact" className="block w-full bg-pb-electric text-pb-black text-center py-3 rounded-lg font-semibold hover:bg-pb-electric/90 transition-colors">
-                Book Discovery Call
-              </a>
-            </div>
-
-            {/* Premium Package */}
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8">
-              <h3 className="text-h3 font-bold mb-2 mt-8">Premium</h3>
-              <div className="text-h2 font-black text-pb-white mb-4">£9,500</div>
-              <p className="text-body-sm text-pb-gray-400 mb-6">Up to 20 people</p>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-white flex-shrink-0 mt-0.5" />
-                  <span>Everything in Standard</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-white flex-shrink-0 mt-0.5" />
-                  <span>90-day office hours</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-white flex-shrink-0 mt-0.5" />
-                  <span>Monthly check-ins</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-white flex-shrink-0 mt-0.5" />
-                  <span>Advanced use case support</span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                  <CheckCircle className="w-5 h-5 text-pb-white flex-shrink-0 mt-0.5" />
-                  <span>Custom enterprise packages available</span>
-                </li>
-              </ul>
-
-              <a href="#contact" className="block w-full border border-pb-gray-600 text-pb-white text-center py-3 rounded-lg font-semibold hover:bg-pb-gray-800 transition-colors">
-                Contact Us
-              </a>
-            </div>
           </div>
         </div>
       </section>
