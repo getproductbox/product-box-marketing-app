@@ -1,4 +1,16 @@
-// External URLs
+// Team Members
+export const TEAM_MEMBERS = [
+  {
+    name: 'Matt',
+    calendarUrl: 'https://calendar.app.google/KHYMfLZb2LsuJTEi7',
+  },
+  {
+    name: 'Ollie',
+    calendarUrl: 'https://calendar.app.google/KHYMfLZb2LsuJTEi7', // TODO: Replace with Ollie's Google Calendar URL when available
+  },
+] as const
+
+// External URLs (keeping for backwards compatibility during migration)
 export const EXTERNAL_URLS = {
   CALENDLY: 'https://calendly.com/productbox',
 } as const

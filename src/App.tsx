@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { PathCard } from './components/PathCard'
-import { EXTERNAL_URLS, CTA_TEXT, ROUTES } from './lib/constants'
+import { BookingModal } from './components/BookingModal'
+import { TEAM_MEMBERS, CTA_TEXT, ROUTES } from './lib/constants'
 
 function App() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+
   return (
     <>
       {/* Hero Section */}
@@ -51,18 +55,23 @@ function App() {
             <p className="text-body-xl text-pb-gray-300 mb-6">
               Not sure which path is right for you?
             </p>
-            <a
-              href={EXTERNAL_URLS.CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center gap-2 bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-lg hover:bg-pb-accent/90 hover:scale-105 transition-all duration-300 shadow-xl"
             >
               {CTA_TEXT.BOOK_DISCOVERY_CALL}
               <ArrowUpRight className="w-5 h-5" />
-            </a>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        teamMembers={TEAM_MEMBERS}
+      />
     </>
   )
 }

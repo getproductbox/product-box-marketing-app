@@ -1,9 +1,12 @@
 import { ArrowUpRight, CheckCircle, Clock, Target, BookOpen, MessageSquare } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { BookingModal } from '../components/BookingModal'
+import { TEAM_MEMBERS } from '../lib/constants'
 
 export function AgentTrainingPage() {
   const [activeTab, setActiveTab] = useState<'hr' | 'sales' | 'ops'>('hr')
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
   // Section Divider Component
   const SectionDivider = () => (
     <div className="py-12 px-6">
@@ -35,13 +38,13 @@ export function AgentTrainingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a
-              href="#contact"
+            <button
+              onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center justify-center gap-2 bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-lg hover:bg-pb-accent/90 transition-all duration-300"
             >
               Book Discovery Call
               <ArrowUpRight className="w-5 h-5" />
-            </a>
+            </button>
             <a
               href="#details"
               className="inline-flex items-center justify-center gap-2 border border-pb-gray-600 text-pb-white px-8 py-4 font-semibold rounded-lg hover:border-pb-gray-500 hover:bg-pb-gray-800 transition-all duration-300"
@@ -397,15 +400,13 @@ export function AgentTrainingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://calendly.com/productbox"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center justify-center gap-2 bg-pb-accent text-pb-white px-8 py-4 font-semibold rounded-lg hover:bg-pb-accent/90 transition-all duration-300"
             >
               Book Discovery Call
               <ArrowUpRight className="w-5 h-5" />
-            </a>
+            </button>
             <Link
               to="/product-studio"
               className="inline-flex items-center justify-center gap-2 border border-pb-gray-600 text-pb-white px-8 py-4 font-semibold rounded-lg hover:border-pb-gray-500 hover:bg-pb-gray-800 transition-all duration-300"
@@ -415,6 +416,13 @@ export function AgentTrainingPage() {
           </div>
         </div>
       </section>
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        teamMembers={TEAM_MEMBERS}
+      />
     </div>
   )
 }

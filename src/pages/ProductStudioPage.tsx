@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom'
 import { getServicesData, getCaseStudiesData, getTestimonialsData } from '../lib/data'
 import type { Service, CaseStudy, Testimonial } from '../types/sanity'
 import { CaseStudyModal } from '../components/CaseStudyModal'
+import { BookingModal } from '../components/BookingModal'
+import { TEAM_MEMBERS, CTA_TEXT } from '../lib/constants'
 
 export function ProductStudioPage() {
   const [services, setServices] = useState<Service[]>([])
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null)
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,13 +55,13 @@ export function ProductStudioPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
+            <button
+              onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center justify-center gap-2 bg-pb-electric text-pb-black px-8 py-4 font-semibold rounded-lg hover:bg-pb-electric/90 transition-all duration-300"
             >
-              Interested in Building With Us?
+              {CTA_TEXT.BOOK_DISCOVERY_CALL}
               <ArrowUpRight className="w-5 h-5" />
-            </a>
+            </button>
             <Link
               to="/agent-training"
               className="inline-flex items-center justify-center gap-2 border border-pb-gray-600 text-pb-white px-8 py-4 font-semibold rounded-lg hover:border-pb-gray-500 hover:bg-pb-gray-800 transition-all duration-300"
@@ -200,13 +203,13 @@ export function ProductStudioPage() {
             Interested in working with Product Box on your next AI-powered product? Get in touch.
           </p>
 
-          <a
-            href="mailto:hello@getproductbox.com"
+          <button
+            onClick={() => setIsBookingModalOpen(true)}
             className="inline-flex items-center justify-center gap-2 bg-pb-electric text-pb-black px-8 py-4 font-semibold rounded-lg hover:bg-pb-electric/90 transition-all duration-300"
           >
-            Get In Touch
+            {CTA_TEXT.BOOK_DISCOVERY_CALL}
             <ArrowUpRight className="w-5 h-5" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -215,6 +218,13 @@ export function ProductStudioPage() {
         isOpen={!!selectedCaseStudy}
         caseStudy={selectedCaseStudy}
         onClose={() => setSelectedCaseStudy(null)}
+      />
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        teamMembers={TEAM_MEMBERS}
       />
     </div>
   )
