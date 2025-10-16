@@ -10,7 +10,7 @@ interface TeamMember {
 interface BookingModalProps {
   isOpen: boolean
   onClose: () => void
-  teamMembers: TeamMember[]
+  teamMembers: readonly TeamMember[]
 }
 
 export function BookingModal({ isOpen, onClose, teamMembers }: BookingModalProps) {
