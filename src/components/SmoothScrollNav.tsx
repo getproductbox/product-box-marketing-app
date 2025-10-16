@@ -13,9 +13,9 @@ export const SmoothScrollNav: React.FC = () => {
 
   const navItems: NavItem[] = useMemo(() => [
     { id: 'hero', label: 'Home', icon: <Home className="w-4 h-4" /> },
-    { id: 'services', label: 'Services', icon: <Briefcase className="w-4 h-4" /> },
-    { id: 'case-studies', label: 'Work', icon: <FileText className="w-4 h-4" /> },
-    { id: 'testimonials', label: 'Clients', icon: <Users className="w-4 h-4" /> },
+    { id: 'problem', label: 'Problem', icon: <FileText className="w-4 h-4" /> },
+    { id: 'solution', label: 'Solution', icon: <Briefcase className="w-4 h-4" /> },
+    { id: 'how-it-works', label: 'Process', icon: <Users className="w-4 h-4" /> },
     { id: 'contact', label: 'Contact', icon: <MessageSquare className="w-4 h-4" /> }
   ], [])
 

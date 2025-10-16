@@ -53,7 +53,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({
           <h1 className="text-4xl font-black text-pb-white mb-2">
             Product<span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">Box</span>
           </h1>
-          <p className="text-pb-gray-400 text-lg">Transforming Operations</p>
+          <p className="text-pb-gray-400 text-lg">Implementing Agents</p>
         </div>
 
         {/* Progress Bar */}
