@@ -3,6 +3,7 @@ import App from '../App'
 import { PrivacyPolicy } from '../pages/PrivacyPolicy'
 import { TermsOfService } from '../pages/TermsOfService'
 import { CaseStudiesPage } from '../pages/CaseStudiesPage'
+import { HROperatorCourse } from '../pages/HROperatorCourse'
 import { AgentTrainingPage } from '../pages/AgentTrainingPage'
 import { ProductStudioPage } from '../pages/ProductStudioPage'
 import { Layout } from '../components/Layout'
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: 'terms',
         element: <TermsOfService />
+      },
+      {
+        path: 'hr-operator-course',
+        element: <HROperatorCourse />
       }
     ]
   }
