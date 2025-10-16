@@ -86,18 +86,41 @@ describe('HROperatorCourse Component', () => {
       expect(screen.getByText(/installing your agent/i)).toBeInTheDocument()
       expect(screen.getByText(/creating safe spaces to work in/i)).toBeInTheDocument()
       expect(screen.getByText(/sharing knowledge with your agent/i)).toBeInTheDocument()
+    })
+
+    it('should display "collaborating with your agent" heading', () => {
+      renderWithRouter(<HROperatorCourse />)
       expect(screen.getByText(/collaborating with your agent/i)).toBeInTheDocument()
     })
 
-    it('should display planning and building modes', () => {
+    it('should display collaboration items', () => {
       renderWithRouter(<HROperatorCourse />)
       expect(screen.getByText(/switching between planning and building modes/i)).toBeInTheDocument()
+      expect(screen.getByText(/setting goals/i)).toBeInTheDocument()
+      expect(screen.getByText(/saving your work/i)).toBeInTheDocument()
     })
 
-    it('should display tool connection information', () => {
+    it('should display "connecting your agent to your tools" heading', () => {
       renderWithRouter(<HROperatorCourse />)
       expect(screen.getByText(/connecting your agent to your tools/i)).toBeInTheDocument()
+    })
+
+    it('should display tool connection items', () => {
+      renderWithRouter(<HROperatorCourse />)
       expect(screen.getByText(/creating a memory for your agent/i)).toBeInTheDocument()
+      expect(screen.getByText(/connecting a tool, such as HiBob or Google Workspace/i)).toBeInTheDocument()
+    })
+
+    it('should display "safely running a process" heading', () => {
+      renderWithRouter(<HROperatorCourse />)
+      expect(screen.getByText(/safely running a process with your agent/i)).toBeInTheDocument()
+    })
+
+    it('should display process running items', () => {
+      renderWithRouter(<HROperatorCourse />)
+      expect(screen.getByText(/providing a process to run e\.g\. offboarding/i)).toBeInTheDocument()
+      expect(screen.getByText(/when to check-in/i)).toBeInTheDocument()
+      expect(screen.getByText(/iterating and sharing/i)).toBeInTheDocument()
     })
 
     it('should display ready-to-deploy process heading', () => {

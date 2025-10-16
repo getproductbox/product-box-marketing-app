@@ -62,17 +62,41 @@ export function HROperatorCourse() {
                       <li className="text-body list-disc">installing your agent (if required)</li>
                       <li className="text-body list-disc">creating safe spaces to work in</li>
                       <li className="text-body list-disc">sharing knowledge with your agent</li>
-                      <li className="text-body list-disc">collaborating with your agent</li>
+                    </ul>
+                  </div>
+
+                  {/* Collaborating with your agent */}
+                  <div>
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
+                      Collaborating with your agent:
+                    </h3>
+                    <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">switching between planning and building modes</li>
                       <li className="text-body list-disc">setting goals</li>
                       <li className="text-body list-disc">ideating safely</li>
                       <li className="text-body list-disc">focusing on good-enough</li>
                       <li className="text-body list-disc">saving your work</li>
-                      <li className="text-body list-disc">connecting your agent to your tools</li>
+                    </ul>
+                  </div>
+
+                  {/* Connecting your agent to your tools */}
+                  <div>
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
+                      Connecting your agent to your tools:
+                    </h3>
+                    <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">creating a memory for your agent</li>
                       <li className="text-body list-disc">connecting a tool, such as HiBob or Google Workspace</li>
                       <li className="text-body list-disc">not overloading your agent</li>
-                      <li className="text-body list-disc">safely running a process with your agent</li>
+                    </ul>
+                  </div>
+
+                  {/* Safely running a process with your agent */}
+                  <div>
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
+                      Safely running a process with your agent:
+                    </h3>
+                    <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">providing a process to run e.g. offboarding</li>
                       <li className="text-body list-disc">when to check-in</li>
                       <li className="text-body list-disc">iterating and sharing</li>
