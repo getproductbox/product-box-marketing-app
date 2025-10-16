@@ -19,16 +19,16 @@ export function HROperatorCourse() {
           <div className="bg-pb-gray-900 rounded-lg border border-pb-gray-800 p-8 lg:p-12">
             {/* Main Heading */}
             <h1 className="text-display font-black text-pb-white mb-6">
-              The HR Operator Course
+              Become an HR Operator
             </h1>
 
             <div className="space-y-12 text-pb-gray-300">
               {/* Who it's for Section */}
               <section>
-                <h2 className="text-h2 font-bold text-pb-white mb-6">Who it's for:</h2>
+                <h2 className="text-h2 font-bold text-pb-white mb-6">Who it's for</h2>
                 <ul className="space-y-3 ml-6">
                   <li className="text-body list-disc">
-                    HR people who want to streamline processes and deliver more without hiring
+                    HR people who want to deliver more without hiring
                   </li>
                   <li className="text-body list-disc">
                     HR leaders who want to scale without hiring a big team
@@ -38,25 +38,25 @@ export function HROperatorCourse() {
 
               {/* What you'll learn Section */}
               <section>
-                <h2 className="text-h2 font-bold text-pb-white mb-6">What you'll learn:</h2>
+                <h2 className="text-h2 font-bold text-pb-white mb-6">What you'll learn</h2>
 
                 <div className="space-y-8">
                   {/* Agentic work best practices */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Agentic work best practices:
+                      Agentic work best practices & mindset
                     </h3>
                     <ul className="space-y-2 ml-6">
-                      <li className="text-body list-disc">mindset: reviewing</li>
-                      <li className="text-body list-disc">mindset: experimenting</li>
-                      <li className="text-body list-disc">mindset: the unknown and unblocking yourself</li>
+                      <li className="text-body list-disc">reviewing</li>
+                      <li className="text-body list-disc">experimenting</li>
+                      <li className="text-body list-disc">the unknown and unblocking yourself</li>
                     </ul>
                   </div>
 
                   {/* Starting up an agent */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Starting up an agent, including:
+                      Starting up an agent
                     </h3>
                     <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">installing your agent (if required)</li>
@@ -68,10 +68,10 @@ export function HROperatorCourse() {
                   {/* Collaborating with your agent */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Collaborating with your agent:
+                      Collaborating with your agent
                     </h3>
                     <ul className="space-y-2 ml-6">
-                      <li className="text-body list-disc">switching between planning and building modes</li>
+                      <li className="text-body list-disc">switching between planning & building modes</li>
                       <li className="text-body list-disc">setting goals</li>
                       <li className="text-body list-disc">ideating safely</li>
                       <li className="text-body list-disc">focusing on good-enough</li>
@@ -82,22 +82,22 @@ export function HROperatorCourse() {
                   {/* Connecting your agent to your tools */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Connecting your agent to your tools:
+                      Connecting tools to your agent
                     </h3>
                     <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">creating a memory for your agent</li>
-                      <li className="text-body list-disc">connecting a tool, such as HiBob or Google Workspace</li>
-                      <li className="text-body list-disc">not overloading your agent</li>
+                      <li className="text-body list-disc">connecting tools e.g. HiBob or Google Workspace</li>
+                      <li className="text-body list-disc">avoiding agent overload</li>
                     </ul>
                   </div>
 
-                  {/* Safely running a process with your agent */}
+                  {/* Safely running a process */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Safely running a process with your agent:
+                      Safely running processes
                     </h3>
                     <ul className="space-y-2 ml-6">
-                      <li className="text-body list-disc">providing a process to run e.g. offboarding</li>
+                      <li className="text-body list-disc">selecting a process e.g. offboarding</li>
                       <li className="text-body list-disc">when to check-in</li>
                       <li className="text-body list-disc">iterating and sharing</li>
                     </ul>
@@ -106,7 +106,7 @@ export function HROperatorCourse() {
                   {/* One ready-to-deploy agentic process */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      One ready-to-deploy agentic process:
+                      One ready-to-deploy agentic process
                     </h3>
                     <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">customised to your needs</li>
