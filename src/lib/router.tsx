@@ -4,6 +4,7 @@ import { PrivacyPolicy } from '../pages/PrivacyPolicy'
 import { TermsOfService } from '../pages/TermsOfService'
 import { CaseStudiesPage } from '../pages/CaseStudiesPage'
 import { HROperatorCourse } from '../pages/HROperatorCourse'
+import { ProductBuilderCourse } from '../pages/ProductBuilderCourse'
 import { AgentTrainingPage } from '../pages/AgentTrainingPage'
 import { ProductStudioPage } from '../pages/ProductStudioPage'
 import { Layout } from '../components/Layout'
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: 'hr-operator-course',
         element: <HROperatorCourse />
+      },
+      {
+        path: 'product-builder-course',
+        element: <ProductBuilderCourse />
       }
     ]
   }
