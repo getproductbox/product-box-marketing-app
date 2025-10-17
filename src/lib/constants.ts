@@ -3,10 +3,12 @@ export const TEAM_MEMBERS = [
   {
     name: 'Matt',
     calendarUrl: 'https://calendar.app.google/KHYMfLZb2LsuJTEi7',
+    photoPath: '/images/team/Matt.png',
   },
   {
     name: 'Ollie',
     calendarUrl: 'https://calendar.app.google/KHYMfLZb2LsuJTEi7', // TODO: Replace with Ollie's Google Calendar URL when available
+    photoPath: '/images/team/Ollie.png',
   },
 ] as const
 

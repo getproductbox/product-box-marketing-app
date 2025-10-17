@@ -75,11 +75,21 @@ export function BookingModal({ isOpen, onClose, teamMembers }: BookingModalProps
                 key={member.name}
                 className="bg-pb-gray-800/50 border-2 border-pb-gray-700 rounded-xl p-6 hover:border-pb-electric hover:shadow-2xl hover:shadow-pb-electric/20 transition-all duration-300 flex flex-col items-center text-center"
               >
-                {/* Avatar - using initials for now */}
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pb-accent to-pb-electric flex items-center justify-center mb-4">
-                  <span className="text-3xl font-black text-pb-black">
-                    {member.name.charAt(0)}
-                  </span>
+                {/* Avatar with photo */}
+                <div className="w-48 h-48 rounded-full overflow-hidden mb-4 ring-2 ring-pb-gray-700">
+                  {member.photoPath ? (
+                    <img
+                      src={member.photoPath}
+                      alt={`${member.name} headshot`}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-pb-accent to-pb-electric flex items-center justify-center">
+                      <span className="text-3xl font-black text-pb-black">
+                        {member.name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <h3 className="text-h4 font-bold text-pb-white mb-4">{member.name}</h3>
