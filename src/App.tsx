@@ -38,14 +38,14 @@ function App() {
               title="AI Training"
               description="Hands-on workshops that get your team agent-ready"
               linkTo={ROUTES.AGENT_TRAINING}
-              accentColor="electric"
+              accentColor="accent"
               buttonText={CTA_TEXT.LEARN_MORE}
             />
             <PathCard
               title="Product Studio"
               description="AI-powered products from discovery to deployment"
               linkTo={ROUTES.PRODUCT_STUDIO}
-              accentColor="accent"
+              accentColor="electric"
               buttonText={CTA_TEXT.LEARN_MORE}
             />
           </div>

@@ -28,15 +28,22 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="text-body-sm text-pb-gray-300 hover:text-pb-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const isActive = location.pathname === item.path
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`text-body-sm transition-colors ${
+                      isActive
+                        ? 'text-pb-white font-semibold underline underline-offset-8'
+                        : 'text-pb-gray-300 hover:text-pb-white'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
               <button
                 onClick={() => setIsBookingModalOpen(true)}
                 className="bg-pb-accent text-pb-white px-6 py-2 font-semibold rounded-md hover:bg-pb-accent/90 transition-all duration-300"
@@ -64,15 +71,22 @@ export function Header() {
               className="md:hidden mt-4 pb-4 border-t border-pb-gray-800"
             >
               <div className="flex flex-col space-y-4 pt-4">
-                {NAV_ITEMS.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className="text-body-sm text-pb-gray-300 hover:text-pb-white transition-colors text-left"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {NAV_ITEMS.map((item) => {
+                  const isActive = location.pathname === item.path
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`text-body-sm transition-colors text-left ${
+                        isActive
+                          ? 'text-pb-white font-semibold underline underline-offset-8'
+                          : 'text-pb-gray-300 hover:text-pb-white'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                })}
                 <button
                   onClick={() => setIsBookingModalOpen(true)}
                   className="bg-pb-accent text-pb-white px-6 py-2 font-semibold rounded-md hover:bg-pb-accent/90 transition-all duration-300 w-fit"

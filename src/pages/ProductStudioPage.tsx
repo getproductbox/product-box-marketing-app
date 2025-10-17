@@ -47,7 +47,7 @@ export function ProductStudioPage() {
           </div>
 
           <h1 className="text-display font-black mb-6 leading-tight">
-            We Build <span className="bg-gradient-to-r from-pb-accent to-pb-electric bg-clip-text text-transparent">With AI.<br />Every Day.</span>
+            We Build <span className="bg-gradient-to-r from-pb-electric to-pb-electric/60 bg-clip-text text-transparent">With AI.<br />Every Day.</span>
           </h1>
 
           <p className="text-body-xl text-pb-gray-300 mb-10 max-w-2xl mx-auto">
@@ -96,10 +96,10 @@ export function ProductStudioPage() {
             {services.map((service, index) => (
               <div
                 key={service._id}
-                className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-accent transition-all duration-300"
+                className="bg-pb-gray-900 border-2 border-pb-gray-700 rounded-xl p-8 hover:border-pb-electric transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-6">
-                  <div className="text-pb-accent">
+                  <div className="text-pb-electric">
                     {getIcon(service.icon || 'eye')}
                   </div>
                   <div className="text-h5 font-black text-pb-gray-600">
@@ -116,7 +116,7 @@ export function ProductStudioPage() {
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-body-sm text-pb-gray-400">
-                        <span className="text-pb-accent mt-1">→</span>
+                        <span className="text-pb-electric mt-1">→</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -141,23 +141,23 @@ export function ProductStudioPage() {
               <button
                 key={study._id}
                 onClick={() => setSelectedCaseStudy(study)}
-                className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-6 hover:border-pb-accent transition-all duration-300 text-left group"
+                className="bg-pb-gray-900 border-2 border-pb-gray-700 rounded-xl p-6 hover:border-pb-electric transition-all duration-300 text-left group flex flex-col items-start h-full"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="inline-block px-3 py-1 bg-pb-accent/10 border border-pb-accent/30 rounded-full text-pb-accent text-body-xs font-semibold">
+                <div className="flex items-start justify-between mb-4 w-full">
+                  <div className="inline-block px-3 py-1 bg-pb-electric/10 border border-pb-electric/30 rounded-full text-pb-electric text-body-xs font-semibold">
                     {study.service}
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-pb-gray-600 group-hover:text-pb-accent transition-colors" />
+                  <ArrowUpRight className="w-5 h-5 text-pb-gray-600 group-hover:text-pb-electric transition-colors" />
                 </div>
 
                 <h3 className="text-h4 font-bold mb-2">{study.client}</h3>
-                <p className="text-body-sm text-pb-gray-400 mb-4">{study.tagline}</p>
+                <p className="text-body-sm text-pb-gray-400 mb-4 flex-grow">{study.tagline}</p>
 
                 {study.metrics && study.metrics.length > 0 && (
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-pb-gray-800">
+                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-pb-gray-800 w-full">
                     {study.metrics.slice(0, 2).map((metric, idx) => (
                       <div key={idx}>
-                        <div className="text-h5 font-bold text-pb-accent">{metric.value}</div>
+                        <div className="text-h5 font-bold text-pb-electric">{metric.value}</div>
                         <div className="text-body-xs text-pb-gray-500">{metric.label}</div>
                       </div>
                     ))}

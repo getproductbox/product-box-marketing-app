@@ -64,17 +64,9 @@ export function AgentTrainingPage() {
             You Deployed AI. Your Team Barely Uses It.
           </h2>
 
-          <div className="text-body-lg text-pb-gray-200 space-y-4 mb-12 max-w-3xl mx-auto text-center">
-            <p>
-              Most teams use ChatGPT for basic tasks like writing emails or summarising documents.
-            </p>
-            <p>
-              But AI agents can do so much more — they can execute workflows, connect to tools, and automate entire processes.
-            </p>
-            <p className="text-pb-white font-semibold">
-              We show your team how to go from basic chat to real automation.
-            </p>
-          </div>
+          <p className="text-body-lg text-pb-gray-200 mb-12 max-w-3xl mx-auto text-center">
+            Most teams use ChatGPT for emails and summaries. We show them how to automate entire workflows.
+          </p>
 
           {/* Tab Selector */}
           <div className="text-center mb-6">
@@ -138,8 +130,9 @@ export function AgentTrainingPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-pb-accent/10 to-pb-electric/10 border-2 border-pb-accent/30 rounded-xl p-8">
-              <h3 className="text-h4 font-bold mb-6 text-pb-white text-center">After Our Workshop</h3>
+            <div className="p-[3px] bg-gradient-to-r from-pb-accent to-pb-electric rounded-xl shadow-2xl shadow-pb-accent/40">
+              <div className="bg-pb-gray-900 rounded-[10px] p-8">
+                <h3 className="text-h4 font-bold mb-6 text-pb-white text-center">After Our Workshop</h3>
               <div>
                 {activeTab === 'hr' && (
                   <div className="text-body text-pb-white">
@@ -181,6 +174,7 @@ export function AgentTrainingPage() {
                   </div>
                 )}
               </div>
+              </div>
             </div>
           </div>
 
@@ -204,7 +198,7 @@ export function AgentTrainingPage() {
           <h2 className="text-h2 font-black text-center mb-12">What You Get</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
+            <div className="bg-pb-gray-900 border-2 border-pb-gray-700 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
               <Clock className="w-10 h-10 text-pb-accent mb-4" />
               <h3 className="text-h4 font-bold mb-3">Half-Day Workshop</h3>
               <p className="text-body text-pb-gray-300">
@@ -212,15 +206,15 @@ export function AgentTrainingPage() {
               </p>
             </div>
 
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-electric hover:shadow-2xl hover:shadow-pb-electric/20 hover:scale-105 transition-all duration-300">
-              <Target className="w-10 h-10 text-pb-electric mb-4" />
+            <div className="bg-pb-gray-900 border-2 border-pb-gray-700 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
+              <Target className="w-10 h-10 text-pb-accent mb-4" />
               <h3 className="text-h4 font-bold mb-3">Pre-Workshop Discovery</h3>
               <p className="text-body text-pb-gray-300">
                 We customize the workshop to your industry, specific use cases, and participant roles through surveys and discovery calls.
               </p>
             </div>
 
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
+            <div className="bg-pb-gray-900 border-2 border-pb-gray-700 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
               <BookOpen className="w-10 h-10 text-pb-accent mb-4" />
               <h3 className="text-h4 font-bold mb-3">Comprehensive Toolkit</h3>
               <p className="text-body text-pb-gray-300">
@@ -228,8 +222,8 @@ export function AgentTrainingPage() {
               </p>
             </div>
 
-            <div className="bg-pb-gray-900 border border-pb-gray-800 rounded-xl p-8 hover:border-pb-electric hover:shadow-2xl hover:shadow-pb-electric/20 hover:scale-105 transition-all duration-300">
-              <MessageSquare className="w-10 h-10 text-pb-electric mb-4" />
+            <div className="bg-pb-gray-900 border-2 border-pb-gray-700 rounded-xl p-8 hover:border-pb-accent hover:shadow-2xl hover:shadow-pb-accent/20 hover:scale-105 transition-all duration-300">
+              <MessageSquare className="w-10 h-10 text-pb-accent mb-4" />
               <h3 className="text-h4 font-bold mb-3">30-Day Email Support</h3>
               <p className="text-body text-pb-gray-300">
                 Follow-up questions and guidance included. Premium package adds 90 days of office hours for advanced users.
@@ -337,7 +331,7 @@ export function AgentTrainingPage() {
               'Feel confident experimenting within company guidelines',
               'Apply a framework for evaluating agent-appropriate tasks'
             ].map((outcome, index) => (
-              <div key={index} className="flex items-start gap-3 bg-pb-gray-900 border border-pb-gray-800 rounded-lg p-6">
+              <div key={index} className="flex items-start gap-3 bg-pb-gray-900 border-2 border-pb-gray-700 rounded-lg p-6">
                 <CheckCircle className="w-6 h-6 text-pb-accent flex-shrink-0 mt-0.5" />
                 <span className="text-body text-pb-gray-200">{outcome}</span>
               </div>
