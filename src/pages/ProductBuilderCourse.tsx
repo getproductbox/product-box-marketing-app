@@ -1,7 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { SEOHead } from '../components/SEOHead'
+import { BookingModal } from '../components/BookingModal'
+import { TEAM_MEMBERS } from '../lib/constants'
+import { MessageCircle } from 'lucide-react'
 
 export function ProductBuilderCourse() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+
   useEffect(() => {
     document.title = 'The Product Builder Course - Product Box'
   }, [])
@@ -42,13 +47,13 @@ export function ProductBuilderCourse() {
               </section>
 
               {/* Real-world use cases Section */}
-              <section>
+              <section className="pt-12 border-t border-pb-gray-800">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">Real-world use cases</h2>
 
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {/* Emergency Bug Fixes */}
-                  <div>
-                    <h3 className="text-h3 font-semibold text-pb-accent mb-3">
+                  <div className="bg-pb-gray-800/30 border border-pb-gray-700 rounded-lg p-6 hover:border-pb-accent/50 transition-colors">
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
                       Ship critical fixes without waiting for engineers
                     </h3>
                     <p className="text-body">
@@ -57,8 +62,8 @@ export function ProductBuilderCourse() {
                   </div>
 
                   {/* Analytics Enhancements */}
-                  <div>
-                    <h3 className="text-h3 font-semibold text-pb-accent mb-3">
+                  <div className="bg-pb-gray-800/30 border border-pb-gray-700 rounded-lg p-6 hover:border-pb-accent/50 transition-colors">
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
                       Add tracking without blocking your roadmap
                     </h3>
                     <p className="text-body">
@@ -67,8 +72,8 @@ export function ProductBuilderCourse() {
                   </div>
 
                   {/* Quick Feature Variants */}
-                  <div>
-                    <h3 className="text-h3 font-semibold text-pb-accent mb-3">
+                  <div className="bg-pb-gray-800/30 border border-pb-gray-700 rounded-lg p-6 hover:border-pb-accent/50 transition-colors">
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
                       Test ideas at the speed of thought
                     </h3>
                     <p className="text-body">
@@ -79,7 +84,7 @@ export function ProductBuilderCourse() {
               </section>
 
               {/* What you'll learn Section */}
-              <section>
+              <section className="pt-12 border-t border-pb-gray-800">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">What you'll learn</h2>
 
                 <div className="space-y-8">
@@ -147,7 +152,7 @@ export function ProductBuilderCourse() {
               </section>
 
               {/* Plus Section */}
-              <section className="pt-6 border-t border-pb-gray-800">
+              <section className="pt-12 border-t border-pb-gray-800">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">Plus</h2>
                 <ul className="space-y-3 ml-6">
                   <li className="text-body list-disc">
@@ -162,6 +167,22 @@ export function ProductBuilderCourse() {
           </div>
         </div>
       </div>
+
+      {/* Floating CTA */}
+      <button
+        onClick={() => setIsBookingModalOpen(true)}
+        className="fixed bottom-8 right-8 z-50 bg-pb-electric text-pb-black px-6 py-4 rounded-full shadow-lg hover:bg-pb-electric/90 hover:scale-105 transition-all duration-300 font-bold flex items-center gap-2"
+      >
+        <MessageCircle className="w-5 h-5" />
+        Book Discovery Call
+      </button>
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        teamMembers={TEAM_MEMBERS}
+      />
     </>
   )
 }
