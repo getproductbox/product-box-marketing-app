@@ -83,35 +83,26 @@ export function ProductBuilderCourse() {
                 <h2 className="text-h2 font-bold text-pb-white mb-6">What you'll learn</h2>
 
                 <div className="space-y-8">
-                  {/* Agentic work best practices */}
+                  {/* Agentic work fundamentals */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Agentic work best practices & mindset
+                      Agentic work fundamentals
                     </h3>
                     <ul className="space-y-2 ml-6">
-                      <li className="text-body list-disc">reviewing</li>
-                      <li className="text-body list-disc">experimenting</li>
-                      <li className="text-body list-disc">the unknown and unblocking yourself</li>
-                      <li className="text-body list-disc">waves of disruption</li>
-                    </ul>
-                  </div>
-
-                  {/* Starting up an agent */}
-                  <div>
-                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Starting up an agent
-                    </h3>
-                    <ul className="space-y-2 ml-6">
+                      <li className="text-body list-disc">reviewing AI-generated code</li>
+                      <li className="text-body list-disc">experimenting with AI workflows</li>
+                      <li className="text-body list-disc">navigating unknowns and unblocking yourself</li>
+                      <li className="text-body list-disc">adapting to rapid change</li>
                       <li className="text-body list-disc">installing your agent (if required)</li>
                       <li className="text-body list-disc">creating safe spaces to work in</li>
                       <li className="text-body list-disc">sharing knowledge with your agent</li>
                     </ul>
                   </div>
 
-                  {/* Collaborating with your agent */}
+                  {/* Working with your agent */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Collaborating with your agent
+                      Working with your agent
                     </h3>
                     <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">switching between planning & building modes</li>
@@ -119,41 +110,23 @@ export function ProductBuilderCourse() {
                       <li className="text-body list-disc">ideating safely</li>
                       <li className="text-body list-disc">focusing on good-enough</li>
                       <li className="text-body list-disc">saving your work</li>
-                    </ul>
-                  </div>
-
-                  {/* Connecting your agent to your tools */}
-                  <div>
-                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Connecting tools to your agent
-                    </h3>
-                    <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">creating a memory for your agent</li>
                       <li className="text-body list-disc">connecting specific tools, such as Github or Linear</li>
                       <li className="text-body list-disc">avoiding agent overload</li>
                     </ul>
                   </div>
 
-                  {/* Designing and testing new code */}
+                  {/* Building and shipping code */}
                   <div>
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Designing and testing new code
+                      Building and shipping code
                     </h3>
                     <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">setting context</li>
                       <li className="text-body list-disc">code creation workflow</li>
                       <li className="text-body list-disc">testing your changes locally</li>
-                    </ul>
-                  </div>
-
-                  {/* Committing, reviewing and deploying new code */}
-                  <div>
-                    <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Committing, reviewing and deploying new code
-                    </h3>
-                    <ul className="space-y-2 ml-6">
                       <li className="text-body list-disc">working in branches</li>
-                      <li className="text-body list-disc">creating, testing & reviewing PRs</li>
+                      <li className="text-body list-disc">creating, testing & reviewing PRs (pull requests)</li>
                       <li className="text-body list-disc">deploying & hosting your code</li>
                       <li className="text-body list-disc">connecting your domain</li>
                     </ul>
