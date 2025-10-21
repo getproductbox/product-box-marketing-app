@@ -22,6 +22,11 @@ export function ProductBuilderCourse() {
               Become a Product Builder
             </h1>
 
+            {/* Intro Blurb */}
+            <p className="text-body text-pb-gray-300 mb-12">
+              Stop waiting for engineers to make simple product changes. Learn to ship bug fixes, UI updates, and small features yourself—turning days of back-and-forth into hours of focused work.
+            </p>
+
             <div className="space-y-12 text-pb-gray-300">
               {/* Who it's for Section */}
               <section>
@@ -127,6 +132,43 @@ export function ProductBuilderCourse() {
                       <li className="text-body list-disc">synced to Github</li>
                       <li className="text-body list-disc">deployed on Vercel</li>
                     </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* Real-world use cases Section */}
+              <section>
+                <h2 className="text-h2 font-bold text-pb-white mb-6">Real-world use cases</h2>
+
+                <div className="space-y-8">
+                  {/* Emergency Bug Fixes */}
+                  <div>
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-3">
+                      Ship critical fixes without waiting for engineers
+                    </h3>
+                    <p className="text-body">
+                      Launch day and your pricing page shows the wrong numbers? Key feature link goes nowhere? Fix it yourself. Address urgent issues in real-time without scrambling to find available engineers or rolling back the entire release.
+                    </p>
+                  </div>
+
+                  {/* Analytics Enhancements */}
+                  <div>
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-3">
+                      Add tracking without blocking your roadmap
+                    </h3>
+                    <p className="text-body">
+                      Need to instrument a new flow or add conversion metrics? Do it yourself. Stop creating tickets for simple tracking updates and get the data you need to make informed decisions—without consuming engineering capacity better spent on features.
+                    </p>
+                  </div>
+
+                  {/* Quick Feature Variants */}
+                  <div>
+                    <h3 className="text-h3 font-semibold text-pb-accent mb-3">
+                      Test ideas at the speed of thought
+                    </h3>
+                    <p className="text-body">
+                      Add a form field, tweak a user flow, test a different layout—ship it and see what happens. Move from hypothesis to live test in hours instead of weeks, learning from real user behavior instead of endless planning meetings.
+                    </p>
                   </div>
                 </div>
               </section>
