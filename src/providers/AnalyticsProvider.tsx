@@ -70,22 +70,42 @@ export function AnalyticsProvider({
     // Initialize performance monitoring
     if (typeof window !== 'undefined') {
       window.__analytics = analytics
-      
+
+      // Load Simple Analytics script
+      loadSimpleAnalytics()
+
       // Track initial page load
       trackEvent('app_loaded', {
         url: window.location.href,
         referrer: document.referrer || 'direct',
         timestamp: Date.now()
       })
-      
+
       // Set up intersection observer for section tracking
       setupSectionTracking()
-      
+
       // Set up form submission tracking
       setupFormTracking()
-      
+
       // Set up click tracking
       setupClickTracking()
+    }
+  }
+
+  const loadSimpleAnalytics = () => {
+    // Check if script already loaded
+    if (document.querySelector('script[src*="simpleanalyticscdn.com"]')) {
+      return
+    }
+
+    // Create and load Simple Analytics script
+    const script = document.createElement('script')
+    script.src = 'https://scripts.simpleanalyticscdn.com/latest.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    if (debugMode) {
+      console.log('📊 Simple Analytics script loaded')
     }
   }
 
@@ -414,24 +434,26 @@ export function ConsentBanner({
   if (!isVisible) return null
 
   return (
-    <div className={`fixed bottom-0 left-0 right-0 bg-pb-gray-900 border-t border-pb-gray-800 p-4 z-50 ${className}`}>
-      <div className="container flex items-center justify-between">
-        <div className="text-pb-gray-200 text-sm">
-          We use analytics to improve your experience and understand how our site is used.
-        </div>
-        <div className="flex space-x-4">
-          <button
-            onClick={handleDecline}
-            className="text-pb-gray-400 hover:text-pb-white text-sm underline"
-          >
-            Decline
-          </button>
-          <button
-            onClick={handleAccept}
-            className="bg-pb-accent text-pb-white px-4 py-2 rounded-lg text-sm hover:bg-pb-accent/80 transition-colors"
-          >
-            Accept
-          </button>
+    <div className={`fixed bottom-0 left-0 right-0 bg-pb-gray-900 border-t border-pb-gray-800 p-4 z-50 shadow-2xl ${className}`}>
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="text-pb-gray-200 text-sm max-w-2xl">
+            <strong className="text-pb-white">Your privacy matters.</strong> We use 100% privacy-first analytics (Simple Analytics) to understand how our site is used—no cookies, no tracking, no personal data collection.
+          </div>
+          <div className="flex space-x-4 flex-shrink-0">
+            <button
+              onClick={handleDecline}
+              className="text-pb-gray-400 hover:text-pb-white text-sm underline transition-colors"
+            >
+              Decline
+            </button>
+            <button
+              onClick={handleAccept}
+              className="bg-pb-accent text-pb-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-pb-accent/80 transition-all hover:scale-105 shadow-lg"
+            >
+              Accept Analytics
+            </button>
+          </div>
         </div>
       </div>
     </div>
