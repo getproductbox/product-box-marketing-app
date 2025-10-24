@@ -1,18 +1,19 @@
-import { renderHook } from '@testing-library/react'
+import { renderHook, waitFor, act } from '@testing-library/react'
 import { useScrollReveal } from '../useScrollReveal'
+import { vi } from 'vitest'
 
 describe('useScrollReveal', () => {
-  let mockIntersectionObserver: jest.Mock
-  let observeMock: jest.Mock
-  let unobserveMock: jest.Mock
-  let disconnectMock: jest.Mock
+  let mockIntersectionObserver: ReturnType<typeof vi.fn>
+  let observeMock: ReturnType<typeof vi.fn>
+  let unobserveMock: ReturnType<typeof vi.fn>
+  let disconnectMock: ReturnType<typeof vi.fn>
 
   beforeEach(() => {
-    observeMock = jest.fn()
-    unobserveMock = jest.fn()
-    disconnectMock = jest.fn()
+    observeMock = vi.fn()
+    unobserveMock = vi.fn()
+    disconnectMock = vi.fn()
 
-    mockIntersectionObserver = jest.fn().mockImplementation((callback) => ({
+    mockIntersectionObserver = vi.fn().mockImplementation((callback) => ({
       observe: observeMock,
       unobserve: unobserveMock,
       disconnect: disconnectMock,
@@ -23,13 +24,28 @@ describe('useScrollReveal', () => {
     }))
 
     window.IntersectionObserver = mockIntersectionObserver as any
+
+    // Mock matchMedia for all tests (default: no reduced motion)
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: vi.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
   })
 
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
-  it('should detect when element enters viewport', () => {
+  it('should detect when element enters viewport', async () => {
     const mockRef = { current: document.createElement('div') }
     const { result } = renderHook(() => useScrollReveal(mockRef))
 
@@ -38,25 +54,30 @@ describe('useScrollReveal', () => {
 
     // Simulate IntersectionObserver callback
     const [callback] = mockIntersectionObserver.mock.calls[0]
-    callback([{ isIntersecting: true, target: mockRef.current }])
+
+    act(() => {
+      callback([{ isIntersecting: true, target: mockRef.current }])
+    })
 
     // Should be visible after entering viewport
-    expect(result.current.isVisible).toBe(true)
+    await waitFor(() => {
+      expect(result.current.isVisible).toBe(true)
+    })
   })
 
   it('should respect reduced motion preference', () => {
     // Mock matchMedia to return prefers-reduced-motion: reduce
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation((query) => ({
+      value: vi.fn().mockImplementation((query) => ({
         matches: query === '(prefers-reduced-motion: reduce)',
         media: query,
         onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
       })),
     })
 
@@ -90,18 +111,25 @@ describe('useScrollReveal', () => {
     )
   })
 
-  it('should only trigger once by default', () => {
+  it('should only trigger once by default', async () => {
     const mockRef = { current: document.createElement('div') }
     const { result } = renderHook(() => useScrollReveal(mockRef))
 
     const [callback] = mockIntersectionObserver.mock.calls[0]
 
     // First intersection
-    callback([{ isIntersecting: true, target: mockRef.current }])
-    expect(result.current.isVisible).toBe(true)
+    act(() => {
+      callback([{ isIntersecting: true, target: mockRef.current }])
+    })
+
+    await waitFor(() => {
+      expect(result.current.isVisible).toBe(true)
+    })
 
     // Element leaves viewport
-    callback([{ isIntersecting: false, target: mockRef.current }])
+    act(() => {
+      callback([{ isIntersecting: false, target: mockRef.current }])
+    })
 
     // Should still be visible (triggerOnce = true by default)
     expect(result.current.isVisible).toBe(true)
