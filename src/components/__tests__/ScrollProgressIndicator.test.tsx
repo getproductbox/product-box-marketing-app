@@ -46,12 +46,12 @@ describe('ScrollProgressIndicator', () => {
   it('should highlight the first section as active by default', () => {
     const { container } = render(<ScrollProgressIndicator sections={mockSections} />)
 
-    // First dot should have active styling
-    const dots = container.querySelectorAll('button')
-    const firstDot = dots[0]
+    // First dot's inner div should have active styling
+    const firstButton = container.querySelector('button')
+    const firstDot = firstButton?.querySelector('div')
 
     // Active dot should have bg-pb-accent or similar active class
-    expect(firstDot.className).toMatch(/bg-pb-accent|bg-pb-electric/)
+    expect(firstDot?.className).toMatch(/bg-pb-accent|bg-pb-electric/)
   })
 
   it('should navigate to section on click', () => {
