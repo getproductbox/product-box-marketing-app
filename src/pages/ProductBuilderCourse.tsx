@@ -48,7 +48,7 @@ export function ProductBuilderCourse() {
       <ScrollProgressIndicator sections={sections} />
 
       <div className="min-h-screen bg-pb-black pt-32 pb-16 relative z-10">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="bg-gradient-to-b from-pb-gray-900 to-pb-gray-900/50 rounded-2xl border border-pb-gray-700/50 backdrop-blur-sm p-8 lg:p-16 shadow-hard">
             {/* Hero Section */}
             <section
