@@ -1,11 +1,21 @@
 import { useEffect, useState } from 'react'
 import { SEOHead } from '../components/SEOHead'
 import { BookingModal } from '../components/BookingModal'
+import { CourseBackgroundEffects } from '../components/CourseBackgroundEffects'
+import { ScrollProgressIndicator } from '../components/ScrollProgressIndicator'
 import { TEAM_MEMBERS } from '../lib/constants'
 import { MessageCircle } from 'lucide-react'
 
 export function ProductBuilderCourse() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+
+  const sections = [
+    { id: 'hero', label: 'Intro' },
+    { id: 'who', label: 'Who' },
+    { id: 'use-cases', label: 'Cases' },
+    { id: 'learning', label: 'Learn' },
+    { id: 'plus', label: 'Plus' },
+  ]
 
   useEffect(() => {
     document.title = 'The Product Builder Course - Product Box'
@@ -19,42 +29,48 @@ export function ProductBuilderCourse() {
         canonical="/product-builder-course"
       />
 
-      <div className="min-h-screen bg-pb-black pt-24 pb-16">
+      <CourseBackgroundEffects />
+      <ScrollProgressIndicator sections={sections} />
+
+      <div className="min-h-screen bg-pb-black pt-24 pb-16 relative z-10">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="bg-pb-gray-900 rounded-lg border border-pb-gray-800 p-8 lg:p-12">
-            {/* Main Heading */}
-            <h1 className="text-display font-black text-pb-white mb-6">
-              Become a Product Builder
-            </h1>
+            {/* Hero Section */}
+            <section id="hero">
+              {/* Main Heading */}
+              <h1 className="text-display font-black text-pb-white mb-6">
+                Become a Product Builder
+              </h1>
 
-            {/* Intro Blurb */}
-            <p className="text-body text-pb-gray-300 mb-12">
-              Stop waiting for engineers to make simple product changes. Learn to ship bug fixes, UI updates, and small features yourself—turning days of back-and-forth into hours of focused work.
-            </p>
+              {/* Intro Blurb */}
+              <p className="text-body text-pb-gray-300 mb-12">
+                Stop waiting for engineers to make simple product changes. Learn to ship bug fixes, UI updates, and small features yourself—turning days of back-and-forth into hours of focused work.
+              </p>
+            </section>
 
             <div className="space-y-12 text-pb-gray-300">
               {/* Who it's for Section */}
-              <section>
+              <section id="who">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">Who it's for</h2>
                 <ul className="space-y-3 ml-6">
                   <li className="text-body list-disc">
-                    Non-technical PMs who want to release low-risk changes without engineering
+                    PMs / Designers who want to release low-risk changes without engineering
                   </li>
                   <li className="text-body list-disc">
-                    Non-technical Founders / Founding PMs who want to build 0 → 1 without hiring engineers
+                    Founding PMs / Designers who want to build 0 → 1 without hiring engineers
                   </li>
                 </ul>
               </section>
 
               {/* Real-world use cases Section */}
-              <section className="pt-12 border-t border-pb-gray-800">
+              <section id="use-cases" className="pt-12 border-t border-pb-gray-800">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">Real-world use cases</h2>
 
                 <div className="space-y-6">
                   {/* Emergency Bug Fixes */}
                   <div className="bg-pb-gray-800/30 border border-pb-gray-700 rounded-lg p-6 hover:border-pb-accent/50 transition-colors">
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Ship critical fixes without waiting for engineers
+                      Ship quick fixes 10x faster
                     </h3>
                     <p className="text-body">
                       Launch day and your pricing page shows the wrong numbers? Key feature link goes nowhere? Fix it yourself. Address urgent issues in real-time without scrambling to find available engineers or rolling back the entire release.
@@ -64,7 +80,7 @@ export function ProductBuilderCourse() {
                   {/* Analytics Enhancements */}
                   <div className="bg-pb-gray-800/30 border border-pb-gray-700 rounded-lg p-6 hover:border-pb-accent/50 transition-colors">
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Add tracking without blocking your roadmap
+                      Add analytics tracking
                     </h3>
                     <p className="text-body">
                       Need to instrument a new flow or add conversion metrics? Do it yourself. Stop creating tickets for simple tracking updates and get the data you need to make informed decisions—without consuming engineering capacity better spent on features.
@@ -74,7 +90,7 @@ export function ProductBuilderCourse() {
                   {/* Quick Feature Variants */}
                   <div className="bg-pb-gray-800/30 border border-pb-gray-700 rounded-lg p-6 hover:border-pb-accent/50 transition-colors">
                     <h3 className="text-h3 font-semibold text-pb-accent mb-4">
-                      Test ideas at the speed of thought
+                      Ship UI changes
                     </h3>
                     <p className="text-body">
                       Add a form field, tweak a user flow, test a different layout—ship it and see what happens. Move from hypothesis to live test in hours instead of weeks, learning from real user behavior instead of endless planning meetings.
@@ -84,7 +100,7 @@ export function ProductBuilderCourse() {
               </section>
 
               {/* What you'll learn Section */}
-              <section className="pt-12 border-t border-pb-gray-800">
+              <section id="learning" className="pt-12 border-t border-pb-gray-800">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">What you'll learn</h2>
 
                 <div className="space-y-8">
@@ -114,7 +130,7 @@ export function ProductBuilderCourse() {
                       <li className="text-body list-disc">setting goals</li>
                       <li className="text-body list-disc">ideating safely</li>
                       <li className="text-body list-disc">focusing on good-enough</li>
-                      <li className="text-body list-disc">saving your work</li>
+                      <li className="text-body list-disc">saving your work to GitHub</li>
                       <li className="text-body list-disc">creating a memory for your agent</li>
                       <li className="text-body list-disc">connecting specific tools, such as Github or Linear</li>
                       <li className="text-body list-disc">avoiding agent overload</li>
@@ -152,7 +168,7 @@ export function ProductBuilderCourse() {
               </section>
 
               {/* Plus Section */}
-              <section className="pt-12 border-t border-pb-gray-800">
+              <section id="plus" className="pt-12 border-t border-pb-gray-800">
                 <h2 className="text-h2 font-bold text-pb-white mb-6">Plus</h2>
                 <ul className="space-y-3 ml-6">
                   <li className="text-body list-disc">

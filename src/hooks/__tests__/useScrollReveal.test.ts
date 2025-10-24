@@ -13,7 +13,8 @@ describe('useScrollReveal', () => {
     unobserveMock = vi.fn()
     disconnectMock = vi.fn()
 
-    mockIntersectionObserver = vi.fn().mockImplementation((callback) => ({
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    mockIntersectionObserver = vi.fn().mockImplementation((_callback) => ({
       observe: observeMock,
       unobserve: unobserveMock,
       disconnect: disconnectMock,
@@ -136,7 +137,7 @@ describe('useScrollReveal', () => {
   })
 
   it('should handle null ref gracefully', () => {
-    const mockRef = { current: null }
+    const mockRef = { current: null } as any
     const { result } = renderHook(() => useScrollReveal(mockRef))
 
     expect(result.current.isVisible).toBe(false)
