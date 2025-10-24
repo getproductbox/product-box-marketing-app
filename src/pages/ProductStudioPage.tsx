@@ -5,6 +5,7 @@ import { getServicesData, getCaseStudiesData, getTestimonialsData } from '../lib
 import type { Service, CaseStudy, Testimonial } from '../types/sanity'
 import { CaseStudyModal } from '../components/CaseStudyModal'
 import { BookingModal } from '../components/BookingModal'
+import { Container } from '../components/Container'
 import { TEAM_MEMBERS, CTA_TEXT } from '../lib/constants'
 
 export function ProductStudioPage() {
@@ -41,7 +42,7 @@ export function ProductStudioPage() {
     <div className="min-h-screen bg-pb-black text-pb-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-5xl text-center">
+        <Container size="wide" className="text-center">
           <div className="inline-block px-4 py-2 bg-pb-electric/10 border border-pb-electric/30 rounded-full text-pb-electric text-body-sm font-semibold mb-6">
             Product Studio
           </div>
@@ -69,24 +70,24 @@ export function ProductStudioPage() {
               Explore Agent Training
             </Link>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Connection to Training */}
       <section className="py-16 px-6 bg-pb-gray-900/30">
-        <div className="container mx-auto max-w-4xl">
+        <Container size="default">
           <div className="bg-gradient-to-br from-pb-accent/10 to-pb-electric/10 border border-pb-accent/30 rounded-2xl p-8 md:p-12 text-center">
             <h2 className="text-h3 font-bold mb-4">This Is How We Know What We're Teaching</h2>
             <p className="text-body-lg text-pb-gray-300 max-w-2xl mx-auto">
               18+ months of building AI-powered features gives us real-world insights into what works, what doesn't, and how to train teams effectively.
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Our Process */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
+        <Container size="wide">
           <h2 className="text-h2 font-black text-center mb-4">Our Process</h2>
           <p className="text-body-lg text-pb-gray-300 text-center mb-12 max-w-2xl mx-auto">
             How we ship AI-powered products that actually work
@@ -125,12 +126,12 @@ export function ProductStudioPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Case Studies */}
       <section className="py-20 px-6 bg-pb-gray-900/30">
-        <div className="container mx-auto max-w-6xl">
+        <Container size="wide">
           <h2 className="text-h2 font-black text-center mb-4">Real Projects, Real Results</h2>
           <p className="text-body-lg text-pb-gray-300 text-center mb-12 max-w-2xl mx-auto">
             Examples of the AI-powered products we've shipped for clients
@@ -166,12 +167,12 @@ export function ProductStudioPage() {
               </button>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Testimonials */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
+        <Container size="wide">
           <h2 className="text-h2 font-black text-center mb-12">Client Feedback</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -192,12 +193,12 @@ export function ProductStudioPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-gradient-to-br from-pb-electric/20 to-pb-accent/20">
-        <div className="container mx-auto max-w-3xl text-center">
+        <Container size="default" className="text-center">
           <h2 className="text-h2 font-black mb-6">Let's Build Together</h2>
           <p className="text-body-lg text-pb-gray-300 mb-8">
             Interested in working with Product Box on your next AI-powered product? Get in touch.
@@ -210,7 +211,7 @@ export function ProductStudioPage() {
             {CTA_TEXT.BOOK_DISCOVERY_CALL}
             <ArrowUpRight className="w-5 h-5" />
           </button>
-        </div>
+        </Container>
       </section>
 
       {/* Case Study Modal */}
