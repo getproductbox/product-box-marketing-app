@@ -2,6 +2,7 @@ import { ArrowUpRight, CheckCircle, Clock, Target, BookOpen, MessageSquare } fro
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { BookingModal } from '../components/BookingModal'
+import { Container } from '../components/Container'
 import { TEAM_MEMBERS } from '../lib/constants'
 
 export function AgentTrainingPage() {
@@ -10,13 +11,13 @@ export function AgentTrainingPage() {
   // Section Divider Component
   const SectionDivider = () => (
     <div className="py-12 px-6">
-      <div className="container mx-auto max-w-4xl">
+      <Container size="default">
         <div className="relative flex items-center justify-center">
           <div className="flex-grow h-[1px] bg-gradient-to-r from-transparent via-pb-gray-700 to-pb-gray-700"></div>
           <div className="mx-6 w-3 h-3 rounded-full bg-gradient-to-r from-pb-accent to-pb-electric shadow-lg shadow-pb-accent/20"></div>
           <div className="flex-grow h-[1px] bg-gradient-to-l from-transparent via-pb-gray-700 to-pb-gray-700"></div>
         </div>
-      </div>
+      </Container>
     </div>
   )
 
@@ -24,7 +25,7 @@ export function AgentTrainingPage() {
     <div className="min-h-screen bg-pb-black text-pb-white">
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6">
-        <div className="container mx-auto max-w-4xl text-center">
+        <Container size="default" className="text-center">
           <div className="inline-block px-4 py-2 bg-pb-accent/10 border border-pb-accent/30 rounded-full text-pb-accent text-body-sm font-semibold mb-10">
             AI Agent Readiness Training
           </div>
@@ -52,14 +53,14 @@ export function AgentTrainingPage() {
               View Details
             </a>
           </div>
-        </div>
+        </Container>
       </section>
 
       <SectionDivider />
 
       {/* The Problem We Solve - Combined Section with Tabs */}
       <section className="py-20 px-6 bg-pb-gray-900/30">
-        <div className="container mx-auto max-w-4xl">
+        <Container size="default">
           <h2 className="text-display font-black text-center mb-8 leading-tight">
             You Deployed AI. Your Team Barely Uses It.
           </h2>
@@ -187,14 +188,14 @@ export function AgentTrainingPage() {
               </span>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <SectionDivider />
 
       {/* What You Get */}
       <section id="details" className="py-20 px-6 bg-pb-gray-900/30">
-        <div className="container mx-auto max-w-6xl">
+        <Container size="wide">
           <h2 className="text-h2 font-black text-center mb-12">What You Get</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -230,14 +231,14 @@ export function AgentTrainingPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <SectionDivider />
 
       {/* Workshop Agenda */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-4xl">
+        <Container size="default">
           <h2 className="text-h2 font-black text-center mb-12">Workshop Agenda</h2>
 
           <div className="space-y-6">
@@ -309,14 +310,14 @@ export function AgentTrainingPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <SectionDivider />
 
       {/* Learning Outcomes */}
       <section className="py-20 px-6 bg-pb-gray-900/30">
-        <div className="container mx-auto max-w-4xl">
+        <Container size="default">
           <h2 className="text-h2 font-black text-center mb-6">Learning Outcomes</h2>
           <p className="text-body-lg text-pb-gray-300 text-center mb-12 max-w-2xl mx-auto">
             By the end of this workshop, participants will be able to:
@@ -337,14 +338,14 @@ export function AgentTrainingPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       <SectionDivider />
 
       {/* FAQ */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-3xl">
+        <Container size="default">
           <h2 className="text-h2 font-black text-center mb-12">Frequently Asked Questions</h2>
 
           <div className="space-y-6">
@@ -380,14 +381,14 @@ export function AgentTrainingPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       <SectionDivider />
 
       {/* Final CTA */}
       <section id="contact" className="py-20 px-6 bg-gradient-to-br from-pb-accent/20 to-pb-electric/20">
-        <div className="container mx-auto max-w-3xl text-center">
+        <Container size="default" className="text-center">
           <h2 className="text-h2 font-black mb-6">Ready to Get Your Team Agent-Ready?</h2>
           <p className="text-body-lg text-pb-gray-300 mb-8">
             Book a 15-minute discovery call — not a sales pitch, just a conversation to understand your challenges and see if a workshop would help. No pressure, no commitment.
@@ -408,7 +409,7 @@ export function AgentTrainingPage() {
               View Our Studio Work
             </Link>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Booking Modal */}
