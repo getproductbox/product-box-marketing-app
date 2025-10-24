@@ -1,194 +1,164 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
 import { ProductBuilderCourse } from '../pages/ProductBuilderCourse'
+import { vi } from 'vitest'
 
-// Helper to render component with router
-const renderWithRouter = (component: React.ReactElement) => {
-  return render(
-    <BrowserRouter>
-      {component}
-    </BrowserRouter>
-  )
-}
-
-describe('ProductBuilderCourse Component', () => {
-  let originalTitle: string
-
+describe('ProductBuilderCourse Page', () => {
   beforeEach(() => {
-    // Store original document title
-    originalTitle = document.title
+    // Mock IntersectionObserver
+    const mockIntersectionObserver = vi.fn().mockImplementation(() => ({
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+      disconnect: vi.fn(),
+      root: null,
+      rootMargin: '',
+      thresholds: [],
+      takeRecords: () => [],
+    }))
+    window.IntersectionObserver = mockIntersectionObserver as any
+
+    // Mock matchMedia
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: vi.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      })),
+    })
+
+    // Mock scrollY
+    Object.defineProperty(window, 'scrollY', {
+      writable: true,
+      value: 0,
+    })
+
+    // Mock scrollIntoView
+    Element.prototype.scrollIntoView = vi.fn()
   })
 
-  afterEach(() => {
-    // Restore original document title
-    document.title = originalTitle
-  })
-
-  describe('basic rendering', () => {
-    it('should render without crashing', () => {
-      renderWithRouter(<ProductBuilderCourse />)
+  describe('Hero Section', () => {
+    it('should render hero section with gradient background', () => {
+      render(<ProductBuilderCourse />)
+      const hero = screen.getByRole('heading', { name: /become a product builder/i })
+      expect(hero).toBeInTheDocument()
     })
 
-    it('should set the page title correctly', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(document.title).toContain('Product Builder')
+    it('should render intro text', () => {
+      render(<ProductBuilderCourse />)
+      const introText = screen.getByText(/stop waiting for engineers/i)
+      expect(introText).toBeInTheDocument()
     })
 
-    it('should render the main heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByRole('heading', { name: /become a product builder/i, level: 1 })).toBeInTheDocument()
-    })
-  })
-
-  describe('Who it\'s for section', () => {
-    it('should render the "Who it\'s for" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByRole('heading', { name: /who it's for/i })).toBeInTheDocument()
-    })
-
-    it('should display target audience for non-technical PMs', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/non-technical pms who want to release low-risk changes without engineering/i)).toBeInTheDocument()
-    })
-
-    it('should display target audience for non-technical Founders', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/non-technical founders.*who want to build 0.*1 without hiring engineers/i)).toBeInTheDocument()
-    })
-  })
-
-  describe('What you\'ll learn section', () => {
-    it('should render the "What you\'ll learn" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByRole('heading', { name: /what you'll learn/i })).toBeInTheDocument()
-    })
-
-    it('should display agentic work best practices heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/agentic work best practices & mindset/i)).toBeInTheDocument()
-    })
-
-    it('should display mindset items under agentic practices', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/^reviewing$/i)).toBeInTheDocument()
-      expect(screen.getByText(/^experimenting$/i)).toBeInTheDocument()
-      expect(screen.getByText(/the unknown and unblocking yourself/i)).toBeInTheDocument()
-      expect(screen.getByText(/waves of disruption/i)).toBeInTheDocument()
-    })
-
-    it('should display "starting up an agent" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/starting up an agent/i)).toBeInTheDocument()
-    })
-
-    it('should display key agent setup items', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/installing your agent/i)).toBeInTheDocument()
-      expect(screen.getByText(/creating safe spaces to work in/i)).toBeInTheDocument()
-      expect(screen.getByText(/sharing knowledge with your agent/i)).toBeInTheDocument()
-    })
-
-    it('should display "collaborating with your agent" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/collaborating with your agent/i)).toBeInTheDocument()
-    })
-
-    it('should display collaboration items', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/switching between planning & building modes/i)).toBeInTheDocument()
-      expect(screen.getByText(/setting goals/i)).toBeInTheDocument()
-      expect(screen.getByText(/saving your work/i)).toBeInTheDocument()
-    })
-
-    it('should display "connecting tools to your agent" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/connecting tools to your agent/i)).toBeInTheDocument()
-    })
-
-    it('should display tool connection items', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/creating a memory for your agent/i)).toBeInTheDocument()
-      expect(screen.getByText(/connecting specific tools, such as github or linear/i)).toBeInTheDocument()
-    })
-
-    it('should display "designing and testing new code" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/designing and testing new code/i)).toBeInTheDocument()
-    })
-
-    it('should display code design and testing items', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/setting context/i)).toBeInTheDocument()
-      expect(screen.getByText(/code creation workflow/i)).toBeInTheDocument()
-      expect(screen.getByText(/testing your changes locally/i)).toBeInTheDocument()
-    })
-
-    it('should display "committing, reviewing and deploying" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/committing, reviewing and deploying new code/i)).toBeInTheDocument()
-    })
-
-    it('should display commit and deploy items', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/working in branches/i)).toBeInTheDocument()
-      expect(screen.getByText(/creating, testing & reviewing prs/i)).toBeInTheDocument()
-      expect(screen.getByText(/deploying & hosting your code/i)).toBeInTheDocument()
-      expect(screen.getByText(/connecting your domain/i)).toBeInTheDocument()
-    })
-
-    it('should display "one new software project" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/one new software project/i)).toBeInTheDocument()
-    })
-
-    it('should display project characteristics', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/'co-authored' by you, in english/i)).toBeInTheDocument()
-      expect(screen.getByText(/synced to github/i)).toBeInTheDocument()
-      expect(screen.getByText(/deployed on vercel/i)).toBeInTheDocument()
+    it('should render CTA button in floating position', () => {
+      render(<ProductBuilderCourse />)
+      const ctaButtons = screen.getAllByRole('button', { name: /book discovery call/i })
+      const floatingButton = ctaButtons.find(btn => btn.classList.contains('fixed'))
+      expect(floatingButton).toBeInTheDocument()
+      expect(floatingButton).toHaveClass('fixed')
     })
   })
 
-  describe('Plus benefits section', () => {
-    it('should render the "Plus" heading', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
+  describe('Who it\'s for Section', () => {
+    it('should render who section heading', () => {
+      render(<ProductBuilderCourse />)
+      const heading = screen.getByRole('heading', { name: /who it's for/i })
+      expect(heading).toBeInTheDocument()
     })
 
-    it('should display Slack community benefit', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/agentic operator slack community/i)).toBeInTheDocument()
-    })
-
-    it('should display PM qualification benefit', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      expect(screen.getByText(/pm agentic operator qualification/i)).toBeInTheDocument()
-      expect(screen.getByText(/certified by product box/i)).toBeInTheDocument()
+    it('should render audience cards', () => {
+      render(<ProductBuilderCourse />)
+      const pmText = screen.getByText(/PMs \/ Designers/i)
+      expect(pmText).toBeInTheDocument()
+      const descText = screen.getByText(/who want to release low-risk changes/i)
+      expect(descText).toBeInTheDocument()
     })
   })
 
-  describe('SEO and metadata', () => {
-    it('should have proper SEO head component', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      // Check that meta tags would be set (SEOHead component handles this)
-      const metaDescription = document.querySelector('meta[name="description"]')
-      expect(metaDescription).toBeTruthy()
+  describe('Use Cases Section', () => {
+    it('should render use cases heading', () => {
+      render(<ProductBuilderCourse />)
+      const heading = screen.getByRole('heading', { name: /real-world use cases/i })
+      expect(heading).toBeInTheDocument()
+    })
+
+    it('should render use case cards', () => {
+      render(<ProductBuilderCourse />)
+      const quickFixes = screen.getByText(/ship quick fixes 10x faster/i)
+      expect(quickFixes).toBeInTheDocument()
     })
   })
 
-  describe('styling and design system', () => {
-    it('should use proper typography components', () => {
-      renderWithRouter(<ProductBuilderCourse />)
-      const mainHeading = screen.getByRole('heading', { name: /become a product builder/i, level: 1 })
-      expect(mainHeading).toHaveClass('text-display')
+  describe('What you\'ll learn Section', () => {
+    it('should render learning section heading', () => {
+      render(<ProductBuilderCourse />)
+      const heading = screen.getByRole('heading', { name: /what you'll learn/i })
+      expect(heading).toBeInTheDocument()
     })
 
-    it('should use proper background color', () => {
-      const { container } = renderWithRouter(<ProductBuilderCourse />)
-      const mainDiv = container.querySelector('div[class*="bg-pb-"]')
-      expect(mainDiv).toBeTruthy()
-      expect(mainDiv?.className).toMatch(/bg-pb-/)
+    it('should render learning modules', () => {
+      render(<ProductBuilderCourse />)
+      const fundamentals = screen.getByRole('heading', { name: /agentic work fundamentals/i })
+      expect(fundamentals).toBeInTheDocument()
+    })
+  })
+
+  describe('Plus Section', () => {
+    it('should render plus section', () => {
+      render(<ProductBuilderCourse />)
+      const heading = screen.getByRole('heading', { name: /^Plus$/i })
+      expect(heading).toBeInTheDocument()
+    })
+  })
+
+  describe('SEO', () => {
+    it('should have correct page title', () => {
+      render(<ProductBuilderCourse />)
+      expect(document.title).toBe('The Product Builder Course - Product Box')
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('should have proper heading hierarchy', () => {
+      render(<ProductBuilderCourse />)
+      const mainHeading = screen.getByRole('heading', { level: 1 })
+      expect(mainHeading).toBeInTheDocument()
+    })
+
+    it('should have accessible button labels', () => {
+      render(<ProductBuilderCourse />)
+      const buttons = screen.getAllByRole('button', { name: /book discovery call/i })
+      buttons.forEach(btn => {
+        expect(btn).toHaveAccessibleName()
+      })
+    })
+  })
+
+  describe('Floating CTA', () => {
+    it('should render floating book discovery call button', () => {
+      render(<ProductBuilderCourse />)
+      const buttons = screen.getAllByRole('button', { name: /book discovery call/i })
+      expect(buttons.length).toBeGreaterThanOrEqual(1)
+    })
+  })
+
+  describe('Background Effects', () => {
+    it('should render background effects component', () => {
+      const { container } = render(<ProductBuilderCourse />)
+      const bg = container.querySelector('[class*="fixed"][class*="inset"]')
+      expect(bg).toBeTruthy()
+    })
+  })
+
+  describe('Progress Indicator', () => {
+    it('should render progress indicator', () => {
+      const { container } = render(<ProductBuilderCourse />)
+      const indicator = container.querySelector('[class*="fixed"][class*="right"]')
+      expect(indicator).toBeTruthy()
     })
   })
 })
