@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { SEOHead } from '../components/SEOHead'
+import { Container } from '../components/Container'
 
 export function HROperatorCourse() {
   useEffect(() => {
@@ -15,7 +16,7 @@ export function HROperatorCourse() {
       />
 
       <div className="min-h-screen bg-pb-black pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <Container size="default">
           <div className="bg-pb-gray-900 rounded-lg border border-pb-gray-800 p-8 lg:p-12">
             {/* Main Heading */}
             <h1 className="text-display font-black text-pb-white mb-6">
@@ -131,7 +132,7 @@ export function HROperatorCourse() {
               </section>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )
