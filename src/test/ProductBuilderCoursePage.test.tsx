@@ -4,6 +4,18 @@ import { vi } from 'vitest'
 
 describe('ProductBuilderCourse Page', () => {
   beforeEach(() => {
+    // Mock IntersectionObserver
+    const mockIntersectionObserver = vi.fn().mockImplementation(() => ({
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+      disconnect: vi.fn(),
+      root: null,
+      rootMargin: '',
+      thresholds: [],
+      takeRecords: () => [],
+    }))
+    window.IntersectionObserver = mockIntersectionObserver as any
+
     // Mock matchMedia
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
@@ -44,9 +56,10 @@ describe('ProductBuilderCourse Page', () => {
 
     it('should render CTA button in floating position', () => {
       render(<ProductBuilderCourse />)
-      const ctaButton = screen.getByRole('button', { name: /book discovery call/i })
-      expect(ctaButton).toBeInTheDocument()
-      expect(ctaButton).toHaveClass('fixed')
+      const ctaButtons = screen.getAllByRole('button', { name: /book discovery call/i })
+      const floatingButton = ctaButtons.find(btn => btn.classList.contains('fixed'))
+      expect(floatingButton).toBeInTheDocument()
+      expect(floatingButton).toHaveClass('fixed')
     })
   })
 
@@ -59,8 +72,10 @@ describe('ProductBuilderCourse Page', () => {
 
     it('should render audience cards', () => {
       render(<ProductBuilderCourse />)
-      const pmText = screen.getByText(/PMs \/ Designers who want to release low-risk changes/i)
+      const pmText = screen.getByText(/PMs \/ Designers/i)
       expect(pmText).toBeInTheDocument()
+      const descText = screen.getByText(/who want to release low-risk changes/i)
+      expect(descText).toBeInTheDocument()
     })
   })
 
@@ -116,8 +131,10 @@ describe('ProductBuilderCourse Page', () => {
 
     it('should have accessible button labels', () => {
       render(<ProductBuilderCourse />)
-      const button = screen.getByRole('button', { name: /book discovery call/i })
-      expect(button).toHaveAccessibleName()
+      const buttons = screen.getAllByRole('button', { name: /book discovery call/i })
+      buttons.forEach(btn => {
+        expect(btn).toHaveAccessibleName()
+      })
     })
   })
 
